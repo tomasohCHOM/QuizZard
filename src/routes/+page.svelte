@@ -1,5 +1,6 @@
 <script lang="ts">
 	import "../app.css";
+	import Question from "$lib/components/question.svelte";
 </script>
 
-<h1 class="text-3xl font-bold underline">Hello World!</h1>
+<Question />
