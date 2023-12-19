@@ -5,8 +5,7 @@
 	export let questionPrompt: string;
 	export let answers: string[];
 	export let correct: string;
-
-	let answerSelected: boolean = false;
+	export let answerSelected: boolean = false;
 
 	function answerClicked() {
 		answerSelected = true;
@@ -17,7 +16,7 @@
 	<div
 		class="mb-8 flex flex-col items-center justify-center rounded-xl border-2 border-slate-700 p-8"
 	>
-		<h2 class="text-2xl">Question #{questionNumber}</h2>
+		<h2 class="text-2xl">Question #{questionNumber + 1}</h2>
 		<p>{questionPrompt}</p>
 	</div>
 
@@ -25,14 +24,16 @@
 		{#each answers as answer}
 			<button
 				class="cursor-pointer rounded-xl border-2 border-slate-700 p-4 transition hover:opacity-80 {answerSelected
-					? answer == correct
+					? answer === correct
 						? 'bg-green-700'
 						: 'bg-red-700'
-					: ''} {answerSelected ? 'border-none text-slate-50' : ''}"
+					: ''} {answerSelected ? 'border-slate-100 text-slate-50' : ''}"
 				on:click={answerClicked}
 			>
 				{answer}
 			</button>
 		{/each}
 	</div>
+
+	<slot name="buttons" />
 </section>
