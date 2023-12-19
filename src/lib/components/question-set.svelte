@@ -18,7 +18,7 @@
 	<div class="mt-4" slot="buttons">
 		{#if questionNumber > 0}
 			<button
-				class="float-left rounded-lg border-2 border-slate-700 px-6 py-3"
+				class="border-color-contrast text-color-contrast float-left rounded-lg border-2 px-6 py-3"
 				on:click={() => {
 					questionNumber--;
 					answerSelected = false;
@@ -28,7 +28,7 @@
 
 		{#if questionNumber < questionSet.length - 1}
 			<button
-				class="float-right rounded-lg border-2 border-slate-700 px-6 py-3"
+				class="border-color-contrast text-color-contrast float-right rounded-lg border-2 px-6 py-3"
 				on:click={() => {
 					questionNumber++;
 					answerSelected = false;

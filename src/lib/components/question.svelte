@@ -14,7 +14,7 @@
 
 <section class="p-10 md:p-20">
 	<div
-		class="mb-8 flex flex-col items-center justify-center rounded-xl border-2 border-slate-700 p-8"
+		class="border-color-contrast text-color-contrast mb-8 flex flex-col items-center justify-center rounded-xl border-2 p-8"
 	>
 		<h2 class="text-2xl">Question #{questionNumber + 1}</h2>
 		<p>{questionPrompt}</p>
@@ -23,7 +23,7 @@
 	<div class="grid grid-cols-1 items-center justify-center gap-4 sm:grid-cols-2 md:gap-8">
 		{#each answers as answer}
 			<button
-				class="cursor-pointer rounded-xl border-2 border-slate-700 p-4 transition hover:opacity-80 {answerSelected
+				class="border-color-contrast text-color-contrast cursor-pointer rounded-xl border-2 p-4 transition hover:opacity-80 {answerSelected
 					? answer === correct
 						? 'bg-green-700'
 						: 'bg-red-700'
