@@ -2,6 +2,14 @@
 	import "../app.css";
 	import Question from "$lib/components/question.svelte";
 	import QUESTION_LIST from "$lib/questions/sample";
+	import QuestionSet from "$lib/components/question-set.svelte";
+
+	const RANDOMIZED_ANSWER_LIST = QUESTION_LIST.map((question) => {
+		const answers = [question.correctAnswer, ...question.incorrectAnswers].sort(
+			() => Math.random() - 0.5
+		);
+		return { ...question, answers };
+	});
 </script>
 
-<Question />
+<QuestionSet questionSet={RANDOMIZED_ANSWER_LIST} />
