@@ -12,6 +12,7 @@
 	--color-secondary: #879bc6;
 	--color-contrast: #133172;
 
+	color-scheme: light dark;
 	background-color: var(--color-primary);
 	color: var(--color-contrast);
 }
