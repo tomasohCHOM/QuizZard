@@ -4,11 +4,11 @@
 	const question = "Find the square root of 16";
 
 	interface Answer {
-		answer: String;
+		answer: string;
 		correct: boolean;
 	}
 
-	const answers = [
+	const answers: Answer[] = [
 		{ answer: "this is an answer", correct: true },
 		{ answer: "this is an answer", correct: false },
 		{ answer: "this is an answer", correct: false },
