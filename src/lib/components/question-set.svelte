@@ -40,5 +40,5 @@
 		</div>
 	</Question>
 
-	<ProgressBar />
+	<ProgressBar questionSetSize={questionSet.length} />
 </div>

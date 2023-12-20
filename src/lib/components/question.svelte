@@ -1,5 +1,6 @@
 <script lang="ts">
 	import "../../app.css";
+	import ProgressBar from "./progress-bar.svelte";
 
 	export let questionNumber: number = 1;
 	export let questionPrompt: string;
