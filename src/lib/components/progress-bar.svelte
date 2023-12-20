@@ -1,9 +1,13 @@
 <script lang="ts">
-	export let questionSetSize: number;
+	export let correctAnswers: boolean[] | null[];
 </script>
 
 <div class="z-10 mx-10 flex h-4 overflow-hidden rounded-lg border-2 border-color-contrast md:mx-20">
-	{#each Array.from(Array(questionSetSize)) as _}
-		<div class="flex-1 {Math.random() > 0.5 ? 'bg-red-400' : 'bg-green-500'}" />
+	{#each correctAnswers as isCorrect}
+		{#if isCorrect == null}
+			<div class="flex-1" />
+		{:else}
+			<div class="flex-1 {isCorrect ? 'bg-green-500' : 'bg-red-400'} transition" />
+		{/if}
 	{/each}
 </div>

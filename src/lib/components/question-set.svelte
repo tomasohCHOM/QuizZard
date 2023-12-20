@@ -7,6 +7,7 @@
 
 	let questionNumber = 0;
 	let answerSelected = false;
+	let correctAnswers: boolean[] | null[] = new Array(questionSet.length).fill(null);
 </script>
 
 <div>
@@ -16,6 +17,7 @@
 		answers={questionSet[questionNumber].answers}
 		correct={questionSet[questionNumber].correctAnswer}
 		bind:answerSelected
+		bind:correctAnswers
 	>
 		<div class="mt-4" slot="buttons">
 			{#if questionNumber > 0}
@@ -40,5 +42,5 @@
 		</div>
 	</Question>
 
-	<ProgressBar questionSetSize={questionSet.length} />
+	<ProgressBar bind:correctAnswers />
 </div>

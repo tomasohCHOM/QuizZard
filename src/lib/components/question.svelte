@@ -2,14 +2,16 @@
 	import "../../app.css";
 	import ProgressBar from "./progress-bar.svelte";
 
-	export let questionNumber: number = 1;
+	export let questionNumber: number;
 	export let questionPrompt: string;
 	export let answers: string[];
 	export let correct: string;
 	export let answerSelected: boolean = false;
+	export let correctAnswers: boolean[] | null[];
 
-	function answerClicked() {
+	function answerClicked(answer: string) {
 		answerSelected = true;
+		correctAnswers[questionNumber] = answer === correct;
 	}
 </script>
 
@@ -29,7 +31,7 @@
 						? 'bg-green-500 hover:bg-green-500/90'
 						: 'bg-red-400 hover:bg-red-400/90'
 					: ''} {answerSelected ? 'border-color-secondary text-slate-50' : ''}"
-				on:click={answerClicked}
+				on:click={() => answerClicked(answer)}
 			>
 				{answer}
 			</button>
