@@ -9,7 +9,7 @@
 	--ff-general: "Poppins", sans-serif;
 	--ff-code: "Fira Code", monospace;
 	--color-primary: #ffffff;
-	--color-secondary: #879bc6;
+	--color-secondary: #e3ebfb;
 	--color-contrast: #133172;
 
 	color-scheme: light dark;
@@ -33,12 +33,12 @@ body {
 
 html[data-theme="light"] {
 	--color-primary: #ffffff;
-	--color-secondary: #879bc6;
+	--color-secondary: #e3ebfb;
 	--color-contrast: #133172;
 }
 
 html[data-theme="dark"] {
 	--color-primary: #18263f;
 	--color-secondary: #375391;
-	--color-contrast: #a7bfe6;
+	--color-contrast: #bbcce6;
 }

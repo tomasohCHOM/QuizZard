@@ -28,8 +28,8 @@
 </script>
 
 <nav class="flex items-center justify-between border-b-2 border-color-contrast p-4">
-	<span class="text-xl">QuizZard</span>
+	<span class="text-xl font-bold">QuizZard</span>
 	<div>
-		<button class="text-xl" on:click={toggleTheme}>Dark Mode</button>
+		<button class="text-xl font-semibold" on:click={toggleTheme}>Dark Mode</button>
 	</div>
 </nav>

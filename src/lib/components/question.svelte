@@ -14,20 +14,20 @@
 
 <section class="p-10 md:p-20">
 	<div
-		class="border-color-contrast text-color-contrast mb-8 flex flex-col items-center justify-center rounded-xl border-2 p-8"
+		class="mb-8 flex flex-col items-center justify-center rounded-xl border-2 border-color-contrast p-8 text-color-contrast"
 	>
-		<h2 class="text-2xl">Question #{questionNumber + 1}</h2>
+		<h2 class="text-2xl font-semibold">Question #{questionNumber + 1}</h2>
 		<p>{questionPrompt}</p>
 	</div>
 
 	<div class="grid grid-cols-1 items-center justify-center gap-4 sm:grid-cols-2 md:gap-8">
 		{#each answers as answer}
 			<button
-				class="border-color-contrast text-color-contrast cursor-pointer rounded-xl border-2 p-4 transition hover:opacity-80 {answerSelected
+				class="cursor-pointer rounded-xl border-2 border-color-contrast p-4 font-semibold text-color-contrast transition hover:bg-color-secondary {answerSelected
 					? answer === correct
-						? 'bg-green-700'
-						: 'bg-red-700'
-					: ''} {answerSelected ? 'border-slate-100 text-slate-50' : ''}"
+						? 'bg-green-500 hover:bg-green-500/90'
+						: 'bg-red-400 hover:bg-red-400/90'
+					: ''} {answerSelected ? 'border-color-secondary text-slate-50' : ''}"
 				on:click={answerClicked}
 			>
 				{answer}
