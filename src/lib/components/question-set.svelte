@@ -22,7 +22,7 @@
 		<div class="mt-4" slot="buttons">
 			{#if questionNumber > 0}
 				<button
-					class="float-left rounded-lg border-2 border-color-contrast px-6 py-3 font-semibold text-color-contrast transition hover:bg-color-secondary"
+					class="border-contrast text-contrast hover:bg-secondary float-left rounded-lg border-2 px-6 py-3 font-semibold transition"
 					on:click={() => {
 						questionNumber--;
 						answerSelected = false;
@@ -32,7 +32,7 @@
 
 			{#if questionNumber < questionSet.length - 1}
 				<button
-					class="float-right rounded-lg border-2 border-color-contrast px-6 py-3 font-semibold text-color-contrast transition hover:bg-color-secondary"
+					class="border-contrast text-contrast hover:bg-secondary float-right rounded-lg border-2 px-6 py-3 font-semibold transition"
 					on:click={() => {
 						questionNumber++;
 						answerSelected = false;

@@ -8,13 +8,13 @@
 :root {
 	--ff-general: "Poppins", sans-serif;
 	--ff-code: "Fira Code", monospace;
-	--color-primary: #ffffff;
-	--color-secondary: #eef3ff;
-	--color-contrast: #133172;
+	--color-primary: 255, 255, 255;
+	--color-secondary: 235, 248, 255;
+	--color-contrast: 19, 49, 114;
 
 	color-scheme: light dark;
-	background-color: var(--color-primary);
-	color: var(--color-contrast);
+	background-color: rgb(var(--color-primary));
+	color: rgb(var(--color-contrast));
 }
 
 *,
@@ -32,13 +32,13 @@ body {
 }
 
 html[data-theme="light"] {
-	--color-primary: #ffffff;
-	--color-secondary: #eef3ff;
-	--color-contrast: #133172;
+	--color-primary: 255, 255, 255;
+	--color-secondary: 235, 248, 255;
+	--color-contrast: 19, 49, 114;
 }
 
 html[data-theme="dark"] {
-	--color-primary: #18263f;
-	--color-secondary: #375391;
-	--color-contrast: #bbcce6;
+	--color-primary: 24, 38, 63;
+	--color-secondary: 55, 83, 145;
+	--color-contrast: 187, 204, 230;
 }

@@ -27,7 +27,7 @@
 	}
 </script>
 
-<nav class="flex items-center justify-between border-b-2 border-color-contrast p-4">
+<nav class="flex items-center justify-between p-4 shadow-md">
 	<a href="/">
 		<span class="cursor-pointer text-xl font-bold">QuizZard</span>
 	</a>

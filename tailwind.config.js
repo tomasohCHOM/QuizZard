@@ -4,9 +4,9 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				"color-primary": "var(--color-primary)",
-				"color-secondary": "var(--color-secondary)",
-				"color-contrast": "var(--color-contrast)"
+				primary: "rgb(var(--color-primary))",
+				secondary: "rgb(var(--color-secondary))",
+				contrast: "rgb(var(--color-contrast))"
 			},
 			fontFamily: {
 				general: "var(--ff-general)",
