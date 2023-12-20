@@ -9,7 +9,7 @@
 	--ff-general: "Poppins", sans-serif;
 	--ff-code: "Fira Code", monospace;
 	--color-primary: #ffffff;
-	--color-secondary: #e3ebfb;
+	--color-secondary: #eef3ff;
 	--color-contrast: #133172;
 
 	color-scheme: light dark;
@@ -33,7 +33,7 @@ body {
 
 html[data-theme="light"] {
 	--color-primary: #ffffff;
-	--color-secondary: #e3ebfb;
+	--color-secondary: #eef3ff;
 	--color-contrast: #133172;
 }
 

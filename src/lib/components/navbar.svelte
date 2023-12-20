@@ -28,7 +28,9 @@
 </script>
 
 <nav class="flex items-center justify-between border-b-2 border-color-contrast p-4">
-	<span class="text-xl font-bold">QuizZard</span>
+	<a href="/">
+		<span class="cursor-pointer text-xl font-bold">QuizZard</span>
+	</a>
 	<div>
 		<button class="text-xl font-semibold" on:click={toggleTheme}>Dark Mode</button>
 	</div>
