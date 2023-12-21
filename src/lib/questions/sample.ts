@@ -17,6 +17,11 @@ export default [
 		]
 	},
 	{
+		prompt: "Which of the following is NOT a technology part of acmcsuf.com?",
+		correctAnswer: "Java",
+		incorrectAnswers: ["SvelteKit", "GraphQL", "TypeScript"]
+	},
+	{
 		prompt: "How many threads does JavaScript code run in?",
 		correctAnswer: "1",
 		incorrectAnswers: ["2", "8", "no set number"]
