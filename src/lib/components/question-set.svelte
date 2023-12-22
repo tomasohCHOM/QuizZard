@@ -10,37 +10,35 @@
 	let correctAnswers: boolean[] | null[] = new Array(questionSet.length).fill(null);
 </script>
 
-<div>
-	<Question
-		{questionNumber}
-		questionPrompt={questionSet[questionNumber].prompt}
-		answers={questionSet[questionNumber].answers}
-		correct={questionSet[questionNumber].correctAnswer}
-		bind:answerSelected
-		bind:correctAnswers
-	>
-		<div class="mt-4" slot="buttons">
-			{#if questionNumber > 0}
-				<button
-					class="border-contrast text-contrast hover:bg-secondary float-left rounded-lg border-2 px-6 py-3 font-semibold transition"
-					on:click={() => {
-						questionNumber--;
-						answerSelected = false;
-					}}>Previous</button
-				>
-			{/if}
+<Question
+	{questionNumber}
+	questionPrompt={questionSet[questionNumber].prompt}
+	answers={questionSet[questionNumber].answers}
+	correct={questionSet[questionNumber].correctAnswer}
+	bind:answerSelected
+	bind:correctAnswers
+>
+	<div class="mt-4" slot="buttons">
+		{#if questionNumber > 0}
+			<button
+				class="float-left rounded-lg border-2 border-contrast px-6 py-3 font-semibold text-contrast transition hover:bg-secondary"
+				on:click={() => {
+					questionNumber--;
+					answerSelected = false;
+				}}>Previous</button
+			>
+		{/if}
 
-			{#if questionNumber < questionSet.length - 1}
-				<button
-					class="border-contrast text-contrast hover:bg-secondary float-right rounded-lg border-2 px-6 py-3 font-semibold transition"
-					on:click={() => {
-						questionNumber++;
-						answerSelected = false;
-					}}>Next</button
-				>
-			{/if}
-		</div>
-	</Question>
+		{#if questionNumber < questionSet.length - 1}
+			<button
+				class="float-right rounded-lg border-2 border-contrast px-6 py-3 font-semibold text-contrast transition hover:bg-secondary"
+				on:click={() => {
+					questionNumber++;
+					answerSelected = false;
+				}}>Next</button
+			>
+		{/if}
+	</div>
+</Question>
 
-	<ProgressBar bind:correctAnswers />
-</div>
+<ProgressBar bind:correctAnswers />
