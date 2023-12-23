@@ -14,7 +14,7 @@
 	}
 </script>
 
-<section class="p-10 md:p-20">
+<section>
 	<div
 		class="mb-8 flex flex-col items-center justify-center rounded-xl border-white bg-secondary p-8 text-contrast shadow-md group-data-[theme='dark']:border-2"
 	>

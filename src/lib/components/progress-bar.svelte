@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="z-10 mx-10 flex h-6 overflow-hidden rounded-xl bg-secondary group-data-[theme='dark']:border-2 md:mx-20"
+	class="z-10 mt-8 flex h-6 overflow-hidden rounded-xl bg-secondary group-data-[theme='dark']:border-2"
 >
 	{#each correctAnswers as isCorrect, num}
 		{#if isCorrect == null}
