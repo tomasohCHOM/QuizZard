@@ -41,6 +41,11 @@ export default [
 		]
 	},
 	{
+		prompt: "How many public repositories exist within the acmcsufoss org?",
+		correctAnswer: "37",
+		incorrectAnswers: ["29", "32", "51"]
+	},
+	{
 		prompt: "How many bytes is an unsigned short in C?",
 		correctAnswer: "2",
 		incorrectAnswers: ["4", "1", "8"]
