@@ -56,8 +56,8 @@ export default [
 	},
 	{
 		prompt: "Which of these is NOT a graph-related algorithm?",
-		correctAnswer: "Kosaraju's",
-		incorrectAnswers: ["Dijkstra's", "A*", "Naive Bayes"]
+		correctAnswer: "Naive Bayes",
+		incorrectAnswers: ["Dijkstra's", "A*", "Kosaraju's"]
 	},
 	{
 		prompt: "How many public repositories exist within the acmcsufoss org?",
