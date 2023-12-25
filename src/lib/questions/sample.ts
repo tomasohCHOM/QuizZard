@@ -8,12 +8,12 @@ export default [
 	},
 	{
 		prompt:
-			"List the following languages in order of release (oldest to newest).\nJava, C++, C#, JavaScript",
-		correctAnswer: "C++, Java, JavaScript, C#",
+			"List the following languages in order of release (oldest to newest).\nJava, C++, Python, JavaScript",
+		correctAnswer: "C++, Python, Java, JavaScript",
 		incorrectAnswers: [
-			"C++, Java, C#, JavaScript",
-			"Java, C++, C#, JavaScript",
-			"C++, JavaScript, Java, C#"
+			"C++, Java, Python, JavaScript",
+			"C++ JavaScript, Java, Python",
+			"C++, Java, JavaScript, Python"
 		]
 	},
 	{
@@ -22,28 +22,18 @@ export default [
 		incorrectAnswers: ["SvelteKit", "GraphQL", "TypeScript"]
 	},
 	{
-		prompt: "How many threads does JavaScript code run in?",
-		correctAnswer: "1",
-		incorrectAnswers: ["2", "8", "no set number"]
-	},
-	{
 		prompt: "If you apply margin on an inline element which sides will it apply to?",
-		correctAnswer: `Only left and right`,
-		incorrectAnswers: [`Only top and bottom`, `All sides`, `No sides`]
+		correctAnswer: "Only left and right",
+		incorrectAnswers: ["Only top and bottom", "All sides", "No sides"]
 	},
 	{
-		prompt: "Which of these is true about visibility: hidden in CSS?",
-		correctAnswer: "It occupies space",
+		prompt: "Which of these is NOT an HTML Element?",
+		correctAnswer: "<access>",
 		incorrectAnswers: [
-			"It can still be clicked on",
-			"It is removed from layout flow",
-			"It is the same as opacity: 0"
+			"<address>",
+			"<form>",
+			"<dialog>"
 		]
-	},
-	{
-		prompt: "How many public repositories exist within the acmcsufoss org?",
-		correctAnswer: "37",
-		incorrectAnswers: ["29", "32", "51"]
 	},
 	{
 		prompt: "How many bytes is an unsigned short in C?",
@@ -60,18 +50,18 @@ export default [
 		]
 	},
 	{
-		prompt:
-			"React StrictMode helps find unintentional side effects by double invoking certain functions. Which of the following functions is not double invoked by StrictMode?",
-		correctAnswer: "Functions passed to useEffect",
-		incorrectAnswers: [
-			"Function components",
-			"Functions passed to useState",
-			"Class component constructors"
-		]
+		prompt: "75%+ websites use...",
+		correctAnswer: "PHP",
+		incorrectAnswers: ["JavaScript", "jQuery", "React"]
 	},
 	{
-		prompt: "Which of these creates a stacking context in CSS?",
-		correctAnswer: "position: sticky",
-		incorrectAnswers: ["opacity: 1", "z-index: 10", "order: 4"]
+		prompt: "Which of these is NOT a graph-related algorithm?",
+		correctAnswer: "Kosaraju's",
+		incorrectAnswers: ["Dijkstra's", "A*", "Naive Bayes"]
+	},
+	{
+		prompt: "How many public repositories exist within the acmcsufoss org?",
+		correctAnswer: "37",
+		incorrectAnswers: ["29", "32", "51"]
 	}
 ] satisfies Question[];
