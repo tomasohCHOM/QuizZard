@@ -52,7 +52,7 @@ export default [
 	{
 		prompt: "75%+ websites use...",
 		correctAnswer: "PHP",
-		incorrectAnswers: ["JavaScript", "jQuery", "React"]
+		incorrectAnswers: ["JavaScript", "WordPress", "React"]
 	},
 	{
 		prompt: "Which of these is NOT a graph-related algorithm?",
@@ -60,7 +60,7 @@ export default [
 		incorrectAnswers: ["Dijkstra's", "A*", "Kosaraju's"]
 	},
 	{
-		prompt: "How many public repositories exist within the acmcsufoss org?",
+		prompt: "How many public repositories exist within the acmcsufoss org (as of Dec. 25, 2023)?",
 		correctAnswer: "37",
 		incorrectAnswers: ["29", "32", "51"]
 	}
