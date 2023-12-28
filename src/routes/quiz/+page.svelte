@@ -17,22 +17,55 @@
 	let correctAnswers: boolean[] | null[] = new Array(questionSet.length).fill(null);
 	let correctAnswerCount = 0;
 
+	let startTime = performance.now();
+	let endTime: number | null;
+	let totalTime: number = 0;
+
 	// Represents whether the user is done with the quiz or not
 	let isFinished = false;
+	$: finalPercentage = 100 * (correctAnswerCount / questionSet.length);
 
 	function calculateFinalResults() {
 		isFinished = true;
+		endTime = performance.now();
+		console.log(startTime, endTime);
+		totalTime = Math.round((endTime - startTime) / 1000);
+
 		correctAnswers.forEach((isCorrect) => {
 			if (isCorrect) correctAnswerCount++;
 		});
 	}
 </script>
 
-<div class="p-10 md:p-20">
+<section class="p-10 md:p-20">
 	{#if isFinished}
-		<div class="flex gap-4 rounded-lg border-contrast p-4 group-data-[theme='dark']:border-2">
-			<div class="h-36 w-36 rounded-[50%] bg-contrast" />
-			<div>{correctAnswerCount} out of {questionSet.length} correct</div>
+		<h2 class="text-2xl font-semibold md:text-3xl">Results</h2>
+		<div
+			class="mt-4 flex max-w-max flex-col gap-4 rounded-lg border-contrast bg-secondary p-6 shadow-md group-data-[theme='dark']:border-2 md:flex-row md:gap-8 md:p-8"
+		>
+			<div
+				class="flex h-36 w-36 items-center justify-center overflow-hidden rounded-full border-2 border-contrast bg-contrast"
+			>
+				<div
+					class="z-10 flex h-32 w-32 items-center justify-center rounded-full border-2 border-contrast bg-secondary text-xl font-semibold"
+				>
+					{finalPercentage}%
+				</div>
+			</div>
+			<div>
+				<h3 class="text-lg font-semibold md:text-xl">Number of Correct Answers:</h3>
+				<p>{correctAnswerCount} out of {questionSet.length} correct</p>
+				<h3 class="mt-4 text-lg font-semibold md:text-xl">Total Time:</h3>
+				<p>{totalTime} seconds</p>
+			</div>
+		</div>
+
+		<div class="mt-8 flex flex-row justify-between">
+			<a
+				href="/"
+				class="rounded-lg border-2 border-contrast px-6 py-3 font-semibold text-contrast transition hover:bg-secondary"
+				>Go Home</a
+			>
 		</div>
 	{:else}
 		<Question
@@ -73,4 +106,4 @@
 
 		<ProgressBar bind:correctAnswers />
 	{/if}
-</div>
+</section>

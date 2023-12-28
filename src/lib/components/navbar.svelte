@@ -32,8 +32,11 @@
 	<a href="/">
 		<span class="cursor-pointer text-xl font-bold">QuizZard</span>
 	</a>
-	<div>
-		<button class="flex items-center text-xl font-semibold" on:click={toggleTheme}>
+	<div class="flex items-center justify-center gap-4">
+		<a href="https://github.com/tomasohCHOM/QuizZard" class="flex items-center">
+			<Icon icon="mdi:github" width={40} inline={true} />
+		</a>
+		<button class="flex items-center" on:click={toggleTheme}>
 			<Icon icon="fluent:dark-theme-20-filled" width={40} inline={true} />
 		</button>
 	</div>
