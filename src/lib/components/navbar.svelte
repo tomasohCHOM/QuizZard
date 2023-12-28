@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
+	import Icon from "@iconify/svelte";
 
 	let currentTheme: string;
 
@@ -32,6 +33,8 @@
 		<span class="cursor-pointer text-xl font-bold">QuizZard</span>
 	</a>
 	<div>
-		<button class="text-xl font-semibold" on:click={toggleTheme}>Dark Mode</button>
+		<button class="flex items-center text-xl font-semibold" on:click={toggleTheme}>
+			<Icon icon="fluent:dark-theme-20-filled" width={40} inline={true} />
+		</button>
 	</div>
 </nav>
