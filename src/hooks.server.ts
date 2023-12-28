@@ -2,13 +2,16 @@ import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from "$env/static/publi
 import type { Handle } from "@sveltejs/kit";
 import { createServerClient } from "@supabase/ssr";
 import { sequence } from "@sveltejs/kit/hooks";
+import type { CookieSerializeOptions } from "cookie";
 
 export const createClient: Handle = async ({ event, resolve }) => {
 	event.locals.supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
 		cookies: {
 			get: (key) => event.cookies.get(key),
-			set: (key, value, options) => event.cookies.set(key, value, options as any),
-			remove: (key, options) => event.cookies.delete(key, options as any)
+			set: (key, value, options) =>
+				event.cookies.set(key, value, options as CookieSerializeOptions & { path: string }),
+			remove: (key, options) =>
+				event.cookies.delete(key, options as CookieSerializeOptions & { path: string })
 		}
 	});
 
