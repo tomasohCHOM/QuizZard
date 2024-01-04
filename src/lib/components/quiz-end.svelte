@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { QuestionSet } from "$lib/shared";
+	import Icon from "@iconify/svelte";
 
 	export let questionSet: QuestionSet[];
 	export let correctAnswers: boolean[] | null[];
@@ -40,15 +41,26 @@
 				<div class="font-medium">
 					{question.prompt}
 					{#if correctAnswers[questionNum] == null}
-						<span> Not answered. </span>
+						<span class="font-semibold"> Not answered. </span>
 					{:else if correctAnswers[questionNum]}
-						<span class="text-green-500"> Correct! </span>
+						<span class="font-semibold text-green-500"> Correct! </span>
 					{:else}
-						<span class="text-red-400"> Incorrect! </span>
+						<span class="font-semibold text-red-400"> Incorrect! </span>
 					{/if}
 				</div>
-				{#each question.answers as answer, i}
-					<span class="rounded-md border-2 border-contrast p-2">{answer}</span>
+				{#each question.answers as answer}
+					<div class="rounded-md border-2 border-contrast p-2">
+						{answer}
+						{#if answer === question.correctAnswer}
+							<span class="text-green-500">
+								<Icon inline class="inline" icon="mdi:tick" />
+							</span>
+						{:else if !correctAnswers[questionNum] && answerChoices[questionNum] === answer}
+							<span class="text-red-400">
+								<Icon inline class="inline" icon="mdi:close" />
+							</span>
+						{/if}
+					</div>
 				{/each}
 			</div>
 		{/each}
