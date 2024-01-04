@@ -8,7 +8,7 @@ export default [
 	},
 	{
 		prompt:
-			"List the following languages in order of release (oldest to newest).\nJava, C++, Python, JavaScript",
+			"List the following languages in order of release (oldest to newest).\nJava, C++, Python, JavaScript.",
 		correctAnswer: "C++, Python, Java, JavaScript",
 		incorrectAnswers: [
 			"C++, Java, Python, JavaScript",
@@ -29,11 +29,7 @@ export default [
 	{
 		prompt: "Which of these is NOT an HTML Element?",
 		correctAnswer: "<access>",
-		incorrectAnswers: [
-			"<address>",
-			"<form>",
-			"<dialog>"
-		]
+		incorrectAnswers: ["<address>", "<form>", "<dialog>"]
 	},
 	{
 		prompt: "How many bytes is an unsigned short in C?",

@@ -7,10 +7,12 @@
 	export let correct: string;
 	export let answerSelected: boolean = false;
 	export let correctAnswers: boolean[] | null[];
+	export let answerChoices: string[] | null[];
 
 	function answerClicked(answer: string) {
 		answerSelected = true;
 		correctAnswers[questionNumber] = answer === correct;
+		answerChoices[questionNumber] = answer;
 	}
 </script>
 

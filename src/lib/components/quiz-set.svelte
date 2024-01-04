@@ -5,6 +5,7 @@
 
 	export let questionSet: QuestionSet[];
 	export let correctAnswers: boolean[] | null[];
+	export let answerChoices: string[] | null[];
 	export let isFinished: boolean;
 	export let totalTime: number;
 	export let correctAnswerCount: number;
@@ -33,6 +34,7 @@
 	correct={questionSet[questionNumber].correctAnswer}
 	bind:answerSelected
 	bind:correctAnswers
+	bind:answerChoices
 >
 	<div class="mt-4 flex flex-row-reverse justify-between" slot="buttons">
 		{#if questionNumber === questionSet.length - 1}

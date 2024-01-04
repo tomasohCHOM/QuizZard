@@ -13,6 +13,7 @@
 	});
 
 	let correctAnswers: boolean[] | null[] = new Array(questionSet.length).fill(null);
+	let answerChoices: string[] | null[] = new Array(questionSet.length).fill(null);
 	let correctAnswerCount = 0;
 
 	let totalTime: number = 0;
@@ -24,11 +25,19 @@
 
 <section class="p-10 md:p-20">
 	{#if isFinished}
-		<QuizEnd {questionSet} {finalPercentage} {correctAnswerCount} {totalTime} />
+		<QuizEnd
+			{questionSet}
+			{correctAnswers}
+			{answerChoices}
+			{finalPercentage}
+			{correctAnswerCount}
+			{totalTime}
+		/>
 	{:else}
 		<QuizSet
 			{questionSet}
-			{correctAnswers}
+			bind:correctAnswers
+			bind:answerChoices
 			bind:isFinished
 			bind:correctAnswerCount
 			bind:totalTime
