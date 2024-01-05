@@ -41,11 +41,11 @@
 				<div class="font-medium">
 					{question.prompt}
 					{#if correctAnswers[questionNum] == null}
-						<span class="font-semibold"> Not answered. </span>
+						<span class="font-semibold">Not answered.</span>
 					{:else if correctAnswers[questionNum]}
-						<span class="font-semibold text-green-500"> Correct! </span>
+						<span class="font-semibold text-green-500">Correct!</span>
 					{:else}
-						<span class="font-semibold text-red-400"> Incorrect! </span>
+						<span class="font-semibold text-red-400">Incorrect!</span>
 					{/if}
 				</div>
 				{#each question.answers as answer}

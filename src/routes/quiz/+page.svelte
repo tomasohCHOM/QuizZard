@@ -23,7 +23,7 @@
 	$: finalPercentage = 100 * (correctAnswerCount / questionSet.length);
 </script>
 
-<section class="p-10 md:p-20">
+<section class="md:p-10">
 	{#if isFinished}
 		<QuizEnd
 			{questionSet}

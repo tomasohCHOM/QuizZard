@@ -32,12 +32,17 @@
 	<a href="/">
 		<span class="cursor-pointer text-xl font-bold">QuizZard</span>
 	</a>
-	<div class="flex items-center justify-center gap-4">
+	<div class="flex items-center justify-center gap-2">
 		<a href="https://github.com/tomasohCHOM/QuizZard" class="flex items-center">
 			<Icon icon="mdi:github" width={40} inline={true} />
 		</a>
+
 		<button class="flex items-center" on:click={toggleTheme}>
 			<Icon icon="fluent:dark-theme-20-filled" width={40} inline={true} />
 		</button>
+
+		<a href="/login" class="flex items-center">
+			<button class="rounded-full border-2 border-contrast px-3 py-2 font-medium">Log In</button>
+		</a>
 	</div>
 </nav>
