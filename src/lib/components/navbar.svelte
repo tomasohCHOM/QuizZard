@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import Icon from "@iconify/svelte";
+	import type { PageData } from "../../routes/$types";
 
+	export let data: PageData;
 	let currentTheme: string;
 
 	onMount(() => {
@@ -41,8 +43,16 @@
 			<Icon icon="fluent:dark-theme-20-filled" width={40} inline={true} />
 		</button>
 
-		<a href="/login" class="flex items-center">
-			<button class="rounded-full border-2 border-contrast px-3 py-2 font-medium">Log In</button>
-		</a>
+		{#if data.session}
+			<a href="/dashboard" class="flex items-center">
+				<button class="rounded-full border-2 border-contrast px-3 py-2 font-medium">
+					Dashboard
+				</button>
+			</a>
+		{:else}
+			<a href="/login" class="flex items-center">
+				<button class="rounded-full border-2 border-contrast px-3 py-2 font-medium">Log in</button>
+			</a>
+		{/if}
 	</div>
 </nav>

@@ -1,7 +1,10 @@
-<script>
+<script lang="ts">
 	import "../app.css";
 	import Navbar from "$lib/components/navbar.svelte";
 	import { onMount } from "svelte";
+	import type { PageData } from "./$types";
+
+	export let data: PageData;
 
 	onMount(async () => {
 		localStorage.getItem("theme") === "dark" &&
@@ -9,7 +12,7 @@
 	});
 </script>
 
-<Navbar />
+<Navbar bind:data />
 
 <main class="p-10">
 	<slot />
