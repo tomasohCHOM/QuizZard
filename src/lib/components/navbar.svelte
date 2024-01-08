@@ -44,14 +44,17 @@
 		</button>
 
 		{#if data.session}
-			<a href="/dashboard" class="flex items-center">
-				<button class="rounded-full border-2 border-contrast px-3 py-2 font-medium">
-					Dashboard
+			<form action="/logout" method="post" class="flex items-center">
+				<button type="submit" class="rounded-full border-2 border-contrast px-3 py-2 font-medium">
+					Log Out
 				</button>
-			</a>
+			</form>
 		{:else}
 			<a href="/login" class="flex items-center">
-				<button class="rounded-full border-2 border-contrast px-3 py-2 font-medium">Log in</button>
+				<button
+					class="rounded-full border-2 border-contrast bg-contrast px-3 py-2 font-medium text-slate-50 transition hover:brightness-110 group-data-[theme='dark']:bg-secondary"
+					>Log in</button
+				>
 			</a>
 		{/if}
 	</div>
