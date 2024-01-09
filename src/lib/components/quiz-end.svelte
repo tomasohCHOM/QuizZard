@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { QuestionSet } from "$lib/shared";
 	import Icon from "@iconify/svelte";
+	import ProgressRing from "./progress-ring.svelte";
 
 	export let questionSet: QuestionSet[];
 	export let correctAnswers: boolean[] | null[];
@@ -16,15 +17,10 @@
 	<div
 		class="flex min-w-max flex-col gap-4 self-start rounded-lg border-contrast bg-secondary p-6 shadow-md group-data-[theme='dark']:border-2 md:flex-row md:gap-8 md:p-8"
 	>
-		<div
-			class="flex h-36 w-36 items-center justify-center overflow-hidden rounded-full border-2 border-contrast bg-contrast"
-		>
-			<div
-				class="z-10 flex h-32 w-32 items-center justify-center rounded-full border-2 border-contrast bg-secondary text-xl font-semibold"
-			>
-				{finalPercentage}%
-			</div>
-		</div>
+		<ProgressRing
+			progress={correctAnswerCount / questionSet.length}
+			bind:percentage={finalPercentage}
+		/>
 		<div>
 			<h3 class="text-lg font-semibold md:text-xl">Number of Correct Answers:</h3>
 			<p>{correctAnswerCount} out of {questionSet.length} correct</p>
