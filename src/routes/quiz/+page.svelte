@@ -1,5 +1,4 @@
 <script lang="ts">
-	import "../../app.css";
 	import type { QuestionSet } from "$lib/shared";
 	import QUESTION_LIST from "$lib/questions/sample";
 	import QuizEnd from "$lib/components/quiz-end.svelte";

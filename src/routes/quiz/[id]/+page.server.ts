@@ -10,8 +10,9 @@ export const load: PageServerLoad = async ({ params, locals: { supabase } }) => 
 	if (err) {
 		error(404, "Not found");
 	}
+	console.log(data);
 
 	return {
-		questionSet: data[0].question_set
+		questionSet: data[0]
 	};
 };
