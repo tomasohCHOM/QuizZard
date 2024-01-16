@@ -5,7 +5,7 @@
 
 	export let data: PageData;
 
-	let quizzes: QuizSet[] = data.quizzes;
+	let quizzes: QuizSet = data.quizzes;
 </script>
 
 <section class="flex flex-col gap-6">
@@ -13,12 +13,14 @@
 
 	<h2 class="text-xl font-medium md:text-3xl">Recent Quizzes</h2>
 
-	<a
-		href="/quiz"
-		class="block w-64 cursor-pointer rounded border-contrast bg-secondary p-4 font-medium shadow-md transition group-data-[theme='dark']:border-2 group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110"
-	>
-		ACM Quiz
-	</a>
+	{#each quizzes as quiz}
+		<a
+			href="/quiz"
+			class="block w-64 cursor-pointer rounded border-contrast bg-secondary p-4 font-medium shadow-md transition group-data-[theme='dark']:border-2 group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110"
+		>
+			{quiz.name}
+		</a>
+	{/each}
 
 	{#if data.session}
 		<h2 class="text-x; font-medium md:text-3xl">Your Quizzes</h2>
