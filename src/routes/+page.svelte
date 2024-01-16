@@ -1,11 +1,10 @@
 <script lang="ts">
-	import QuizSet from "$lib/components/quiz-set.svelte";
 	import Icon from "@iconify/svelte";
 	import type { PageData } from "./$types";
 
 	export let data: PageData;
 
-	let quizzes: QuizSet = data.quizzes;
+	let quizzes = data.quizzes;
 </script>
 
 <section class="flex flex-col gap-6">
