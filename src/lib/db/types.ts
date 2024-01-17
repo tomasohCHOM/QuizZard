@@ -9,7 +9,7 @@ export interface Database {
 					id: number;
 					name: string;
 					question_set: Json;
-				}[];
+				};
 				Insert: {
 					created_at?: string;
 					id?: number;

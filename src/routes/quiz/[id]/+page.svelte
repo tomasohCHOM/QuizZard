@@ -1,12 +1,11 @@
 <script lang="ts">
-	import type { QuestionSet } from "$lib/shared";
 	import type { PageServerData } from "./$types";
 	import QuizEnd from "$lib/components/quiz-end.svelte";
 	import QuizSet from "$lib/components/quiz-set.svelte";
 
 	export let data: PageServerData;
 
-	let questionSet: QuestionSet[] = data;
+	let questionSet = data.questionSet;
 
 	let correctAnswers: boolean[] | null[] = new Array(questionSet.length).fill(null);
 	let answerChoices: string[] | null[] = new Array(questionSet.length).fill(null);
@@ -16,7 +15,7 @@
 
 	// Represents whether the user is done with the quiz or not
 	let isFinished = false;
-	$: finalPercentage = 100 * (correctAnswerCount / questionSet.length);
+	let finalPercentage = 100 * (correctAnswerCount / questionSet.length);
 </script>
 
 <section class="md:p-10">
@@ -31,7 +30,7 @@
 		/>
 	{:else}
 		<QuizSet
-			{questionSet}
+			bind:questionSet
 			bind:correctAnswers
 			bind:answerChoices
 			bind:isFinished
