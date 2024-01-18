@@ -2,10 +2,16 @@
 	import type { PageServerData } from "./$types";
 	import QuizEnd from "$lib/components/quiz-end.svelte";
 	import QuizSet from "$lib/components/quiz-set.svelte";
+	import type { QuestionSet } from "$lib/shared";
 
 	export let data: PageServerData;
 
-	let questionSet = data.questionSet;
+	let questionSet: QuestionSet[] = data.questionSet.map((question) => {
+		const answers = [question.correctAnswer, ...question.incorrectAnswers].sort(
+			() => Math.random() - 0.5
+		);
+		return { ...question, answers };
+	});
 
 	let correctAnswers: boolean[] | null[] = new Array(questionSet.length).fill(null);
 	let answerChoices: string[] | null[] = new Array(questionSet.length).fill(null);
