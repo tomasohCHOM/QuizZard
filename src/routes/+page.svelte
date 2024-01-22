@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Icon from "@iconify/svelte";
 	import type { PageData } from "./$types";
+	import QuizCard from "$lib/components/quiz-card.svelte";
 
 	export let data: PageData;
 
@@ -12,14 +13,11 @@
 
 	<h2 class="text-xl font-medium md:text-3xl">Recent Quizzes</h2>
 
-	{#each quizzes as quiz}
-		<a
-			href="/quiz"
-			class="block w-64 cursor-pointer rounded border-contrast bg-secondary p-4 font-medium shadow-md transition group-data-[theme='dark']:border-2 group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110"
-		>
-			{quiz.name}
-		</a>
-	{/each}
+	<section class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+		{#each quizzes as quiz}
+			<QuizCard quizId={quiz.id} quizName={quiz.name} quizLength={quiz.question_set?.length} />
+		{/each}
+	</section>
 
 	{#if data.session}
 		<h2 class="text-x; font-medium md:text-3xl">Your Quizzes</h2>
