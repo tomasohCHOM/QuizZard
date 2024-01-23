@@ -13,11 +13,11 @@
 
 	<h2 class="text-xl font-medium md:text-3xl">Recent Quizzes</h2>
 
-	<section class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
 		{#each quizzes as quiz}
 			<QuizCard quizId={quiz.id} quizName={quiz.name} quizLength={quiz.question_set?.length} />
 		{/each}
-	</section>
+	</div>
 
 	{#if data.session}
 		<h2 class="text-x; font-medium md:text-3xl">Your Quizzes</h2>
