@@ -14,8 +14,8 @@ export default [
 	{
 		prompt:
 			"Which of the points A(-4, 0, -1), B(3, 1, 5), and C(2, 4, 6) is closest to the yz-plane?",
-		correctAnswer: "A",
-		incorrectAnswers: ["B", "C"]
+		correctAnswer: "C",
+		incorrectAnswers: ["A", "B"]
 	},
 	{
 		prompt: "Identify the equation of the plane shown on the board",
