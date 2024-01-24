@@ -3,7 +3,7 @@ import type { Question } from "$lib/shared";
 export default [
 	{
 		prompt:
-			"A sphere passes through (1,0, −3) with the center (2, −2, −5). a) Find the equation of the sphere.",
+			"A sphere passes through (1,0, -3) with the center (2, -2, -5). a) Find the equation of the sphere.",
 		correctAnswer: "(x - 2)^2 + (y + 2)^2 + (z + 5)^2 = 9",
 		incorrectAnswers: [
 			"(x - 2)^2 + (y + 2)^2 + (z + 5)^2 = 3",
