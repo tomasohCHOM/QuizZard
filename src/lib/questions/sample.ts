@@ -2,62 +2,29 @@ import type { Question } from "$lib/shared";
 
 export default [
 	{
-		prompt: "Which of the following is NOT a real programming language?",
-		correctAnswer: "Gem",
-		incorrectAnswers: ["Elixir", "Lua", "Rust"]
+		prompt:
+			"A sphere passes through (1,0, −3) with the center (2, −2, −5). a) Find the equation of the sphere.",
+		correctAnswer: "(x - 2)^2 + (y + 2)^2 + (z + 5)^2 = 9",
+		incorrectAnswers: [
+			"(x - 2)^2 + (y + 2)^2 + (z + 5)^2 = 3",
+			"x^2 + y^2 + z^2 = 3",
+			"(x + 2)^2 + (y - 2)^2 + (z - 2)^2 = 9"
+		]
 	},
 	{
 		prompt:
-			"List the following languages in order of release (oldest to newest).\nJava, C++, Python, JavaScript.",
-		correctAnswer: "C++, Python, Java, JavaScript",
-		incorrectAnswers: [
-			"C++, Java, Python, JavaScript",
-			"C++ JavaScript, Java, Python",
-			"C++, Java, JavaScript, Python"
-		]
+			"Which of the points A(-4, 0, -1), B(3, 1, 5), and C(2, 4, 6) is closest to the yz-plane?",
+		correctAnswer: "A",
+		incorrectAnswers: ["B", "C"]
 	},
 	{
-		prompt: "Which of the following is NOT a technology part of acmcsuf.com?",
-		correctAnswer: "Java",
-		incorrectAnswers: ["SvelteKit", "GraphQL", "TypeScript"]
+		prompt: "Identify the equation of the plane shown on the board",
+		correctAnswer: "x = 6",
+		incorrectAnswers: ["y = 6", "z = 6", "None of these are correct"]
 	},
 	{
-		prompt: "If you apply margin on an inline element which sides will it apply to?",
-		correctAnswer: "Only left and right",
-		incorrectAnswers: ["Only top and bottom", "All sides", "No sides"]
-	},
-	{
-		prompt: "Which of these is NOT an HTML Element?",
-		correctAnswer: "<access>",
-		incorrectAnswers: ["<address>", "<form>", "<dialog>"]
-	},
-	{
-		prompt: "How many bytes is an unsigned short in C?",
-		correctAnswer: "2",
-		incorrectAnswers: ["4", "1", "8"]
-	},
-	{
-		prompt: "In what order are margin and padding defined in CSS?",
-		correctAnswer: "Top, Right, Bottom, Left",
-		incorrectAnswers: [
-			"Top, Bottom, Left, Right",
-			"Right, Bottom, Left ,Top",
-			"Left, Right, Top, Bottom"
-		]
-	},
-	{
-		prompt: "75%+ websites use...",
-		correctAnswer: "PHP",
-		incorrectAnswers: ["JavaScript", "WordPress", "React"]
-	},
-	{
-		prompt: "Which of these is NOT a graph-related algorithm?",
-		correctAnswer: "Naive Bayes",
-		incorrectAnswers: ["Dijkstra's", "A*", "Kosaraju's"]
-	},
-	{
-		prompt: "How many public repositories exist within the acmcsufoss org (as of Dec. 25, 2023)?",
-		correctAnswer: "37",
-		incorrectAnswers: ["29", "32", "51"]
+		prompt: "Identify the equation of the plane shown on the board",
+		correctAnswer: "z = 0",
+		incorrectAnswers: ["x = 0", "y = 0", "x + y + z = 0"]
 	}
 ] satisfies Question[];
