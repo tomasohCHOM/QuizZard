@@ -19,6 +19,13 @@
 		{/each}
 	</div>
 
+	<a
+		href="/quiz"
+		class="ml-auto w-max rounded-lg bg-contrast p-2 px-3 text-lg font-semibold text-primary transition hover:opacity-80"
+	>
+		View More
+	</a>
+
 	{#if data.session}
 		<h2 class="text-x; font-medium md:text-3xl">Your Quizzes</h2>
 		{#if quizzes.length === 0}
