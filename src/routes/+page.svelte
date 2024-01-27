@@ -13,7 +13,7 @@
 
 	<h2 class="text-xl font-medium md:text-3xl">Recent Quizzes</h2>
 
-	<div class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+	<div class="grid max-w-screen-2xl grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
 		{#each quizzes as quiz}
 			<QuizCard quizId={quiz.id} quizName={quiz.name} quizLength={quiz.question_set?.length} />
 		{/each}
@@ -33,7 +33,7 @@
 		{/if}
 		<a
 			href="/create"
-			class="flex w-max items-center gap-1 rounded-md bg-secondary py-2 pr-4 transition group-data-[theme='dark']:border-2 group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110"
+			class="theme-shadow flex w-max items-center gap-1 rounded-md bg-secondary py-2 pr-4 transition"
 		>
 			<Icon class="inline-block" width={40} inline={true} icon="ic:baseline-plus" />
 			<span class="align-middle font-medium">Create a Quiz!</span>

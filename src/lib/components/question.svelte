@@ -27,7 +27,7 @@
 	<div class="grid grid-cols-1 items-center justify-center gap-4 sm:grid-cols-2 md:gap-8">
 		{#each answers as answer}
 			<button
-				class="cursor-pointer rounded-xl p-4 font-semibold text-contrast shadow-md transition group-data-[theme='dark']:border-2 group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110 {answerSelected
+				class="theme-shadow cursor-pointer rounded-xl p-4 font-semibold text-contrast shadow-md transition {answerSelected
 					? answer === correct
 						? 'bg-green-500'
 						: 'bg-red-400'

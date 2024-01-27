@@ -5,6 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .theme-shadow {
+    @apply group-data-[theme='dark']:border-2 group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110
+  }
+}
+
 :root {
 	--ff-general: "Poppins", sans-serif;
 	--ff-code: "Fira Code", monospace;
