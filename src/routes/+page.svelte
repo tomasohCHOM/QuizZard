@@ -5,7 +5,8 @@
 
 	export let data: PageData;
 
-	let quizzes = data.quizzes;
+	let recentQuizzes = data.recentQuizzes;
+	let userQuizzes = data.userQuizzes;
 </script>
 
 <section class="flex flex-col gap-6">
@@ -14,7 +15,7 @@
 	<h2 class="text-xl font-medium md:text-3xl">Recent Quizzes</h2>
 
 	<div class="grid max-w-screen-2xl grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
-		{#each quizzes as quiz}
+		{#each recentQuizzes as quiz}
 			<QuizCard quizId={quiz.id} quizName={quiz.name} quizLength={quiz.question_set?.length} />
 		{/each}
 	</div>
@@ -28,8 +29,14 @@
 
 	{#if data.session}
 		<h2 class="text-xl font-medium md:text-3xl">Your Quizzes</h2>
-		{#if quizzes.length === 0}
-			<p>You have no quizzes created at this time.</p>
+		{#if userQuizzes.length === 0}
+			<p>You have no recentQuizzes created at this time.</p>
+		{:else}
+			<div class="grid max-w-screen-2xl grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+				{#each recentQuizzes as quiz}
+					<QuizCard quizId={quiz.id} quizName={quiz.name} quizLength={quiz.question_set?.length} />
+				{/each}
+			</div>
 		{/if}
 		<a
 			href="/create"
