@@ -38,14 +38,11 @@
 >
 	<div class="mt-4 flex flex-row-reverse justify-between" slot="buttons">
 		{#if questionNumber === questionSet.length - 1}
-			<button
-				class="rounded-lg border-2 border-contrast px-6 py-3 font-semibold text-contrast transition hover:bg-secondary"
-				on:click={calculateFinalResults}>Finish</button
-			>
+			<button class="quiz-btn" on:click={calculateFinalResults}>Finish</button>
 		{/if}
 		{#if questionNumber < questionSet.length - 1}
 			<button
-				class="rounded-lg border-2 border-contrast px-6 py-3 font-semibold text-contrast transition hover:bg-secondary"
+				class="quiz-btn"
 				on:click={() => {
 					questionNumber++;
 					answerSelected = false;
@@ -54,7 +51,7 @@
 		{/if}
 		{#if questionNumber > 0}
 			<button
-				class="rounded-lg border-2 border-contrast px-6 py-3 font-semibold text-contrast transition hover:bg-secondary"
+				class="quiz-btn"
 				on:click={() => {
 					questionNumber--;
 					answerSelected = false;

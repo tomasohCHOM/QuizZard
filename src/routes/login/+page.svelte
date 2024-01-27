@@ -19,7 +19,7 @@
 	>
 		<button
 			formaction="?/login&provider=github"
-			class="flex w-full items-center justify-center gap-4 rounded-lg border-2 border-contrast py-2 transition group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110"
+			class="theme-opacity flex w-full items-center justify-center gap-4 rounded-lg border-2 border-contrast py-2 transition"
 		>
 			<Icon class="inline-block" width={40} inline={true} icon="mdi:github" />
 			<span class="align-middle font-medium">Sign in with GitHub</span>

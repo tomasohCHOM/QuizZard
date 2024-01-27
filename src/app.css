@@ -6,9 +6,17 @@
 @tailwind utilities;
 
 @layer components {
-  .theme-shadow {
-    @apply group-data-[theme='dark']:border-2 group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110
-  }
+	.theme-shadow {
+		@apply group-data-[theme='dark']:border-2;
+	}
+
+	.theme-opacity {
+		@apply group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110;
+	}
+
+	.quiz-btn {
+		@apply rounded-lg border-2 border-contrast px-6 py-3 font-semibold text-contrast transition hover:bg-contrast hover:text-primary;
+	}
 }
 
 :root {

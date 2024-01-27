@@ -12,7 +12,7 @@
 
 	<a
 		href="/"
-		class="w-max rounded-lg border-2 border-contrast p-2 px-3 text-lg transition hover:bg-secondary"
+		class="w-max rounded-lg border-2 border-contrast p-2 px-3 text-lg transition hover:bg-contrast hover:text-primary"
 		>Go Back Home</a
 	>
 

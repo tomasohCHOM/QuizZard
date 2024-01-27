@@ -64,9 +64,5 @@
 </section>
 
 <div class="mt-8 flex flex-row justify-between">
-	<a
-		href="/"
-		class="rounded-lg border-2 border-contrast px-6 py-3 font-semibold text-contrast transition hover:bg-secondary"
-		>Go Home</a
-	>
+	<a href="/" class="quiz-btn">Go Home</a>
 </div>

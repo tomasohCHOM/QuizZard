@@ -21,19 +21,19 @@
 
 	<a
 		href="/quiz"
-		class="ml-auto w-max rounded-lg bg-contrast p-2 px-3 text-lg font-semibold text-primary transition hover:opacity-80"
+		class="theme-opacity ml-auto w-max rounded-lg bg-contrast p-2 px-3 text-lg font-semibold text-primary transition"
 	>
 		View More
 	</a>
 
 	{#if data.session}
-		<h2 class="text-x; font-medium md:text-3xl">Your Quizzes</h2>
+		<h2 class="text-xl font-medium md:text-3xl">Your Quizzes</h2>
 		{#if quizzes.length === 0}
 			<p>You have no quizzes created at this time.</p>
 		{/if}
 		<a
 			href="/create"
-			class="theme-shadow flex w-max items-center gap-1 rounded-md bg-secondary py-2 pr-4 transition"
+			class="theme-shadow theme-opacity flex w-max items-center gap-1 rounded-md bg-secondary py-2 pr-4 transition"
 		>
 			<Icon class="inline-block" width={40} inline={true} icon="ic:baseline-plus" />
 			<span class="align-middle font-medium">Create a Quiz!</span>
