@@ -17,6 +17,10 @@
 	.quiz-btn {
 		@apply rounded-lg border-2 border-contrast px-6 py-3 font-semibold text-contrast transition hover:bg-contrast hover:text-primary;
 	}
+
+	.quiz-btn-contrast {
+		@apply theme-opacity w-max rounded-lg bg-contrast px-6 py-3 text-lg font-semibold text-primary transition;
+	}
 }
 
 :root {

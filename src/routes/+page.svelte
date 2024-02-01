@@ -20,12 +20,7 @@
 		{/each}
 	</div>
 
-	<a
-		href="/quiz"
-		class="theme-opacity ml-auto w-max rounded-lg bg-contrast p-2 px-3 text-lg font-semibold text-primary transition"
-	>
-		View More
-	</a>
+	<a href="/quiz" class="quiz-btn-contrast ml-auto"> View More </a>
 
 	{#if data.session}
 		<h2 class="text-xl font-medium md:text-3xl">Your Quizzes</h2>
