@@ -2,29 +2,33 @@ import type { Question } from "$lib/shared";
 
 export default [
 	{
+		prompt: "Let u = <2, 0, 7> and v = <-3, -4, 0>, what is 8(u x v)",
+		correctAnswer: "<224, -168, -64>",
+		incorrectAnswers: ["<28, -21, -8>", "<-224, 168, 64>", "-8"]
+	},
+	{
+		prompt: "Assume a, b, and c are vectors. What if we simplified a · (b · c)?",
+		correctAnswer: "This does not make sense",
+		incorrectAnswers: ["A scalar", "A vector"]
+	},
+	{
 		prompt:
-			"A sphere passes through (1,0, -3) with the center (2, -2, -5). a) Find the equation of the sphere.",
-		correctAnswer: "(x - 2)^2 + (y + 2)^2 + (z + 5)^2 = 9",
+			"Find the area of the parallelogram by PQ and PR where P = (-3, 3, -5), Q = (-1, -3, 0) and R = (1, 5, -5)",
+		correctAnswer: "sqrt(1284)",
+		incorrectAnswers: ["4sqrt(321)", "sqrt(321)", "sqrt(58)"]
+	},
+	{
+		prompt: "Find the equation of line L passing through P(6, -7, -8) and Q(-1, 3, 6)",
+		correctAnswer: "r(t) = <6, -7, -8> + t<-7, 10, 14>",
 		incorrectAnswers: [
-			"(x - 2)^2 + (y + 2)^2 + (z + 5)^2 = 3",
-			"x^2 + y^2 + z^2 = 3",
-			"(x + 2)^2 + (y - 2)^2 + (z - 2)^2 = 9"
+			"r(t) = <-7, 10, 14> + t<6, -7, -8>",
+			"r(t) = <-1, 3, 6> + t<7, -10, -14>",
+			"r(t) = <6, -7, -8> + t <-1, 3, 6>"
 		]
 	},
 	{
-		prompt:
-			"Which of the points A(-4, 0, -1), B(3, 1, 5), and C(2, 4, 6) is closest to the yz-plane?",
-		correctAnswer: "C",
-		incorrectAnswers: ["A", "B"]
-	},
-	{
-		prompt: "Identify the equation of the plane shown on the board",
-		correctAnswer: "x = 6",
-		incorrectAnswers: ["y = 6", "z = 6", "None of these are correct"]
-	},
-	{
-		prompt: "Identify the equation of the plane shown on the board",
-		correctAnswer: "z = 0",
-		incorrectAnswers: ["x = 0", "y = 0", "x + y + z = 0"]
+		prompt: "Find the point at which r(t) = <-5, 1, -8> + t<7, 1, 5> intersects the yz-plane",
+		correctAnswer: "(0, 2/7, -31/7)",
+		incorrectAnswers: ["(7, 0, 4)", "(0, 5/7, 12/7)", "(0, -31/7, 2/7)"]
 	}
 ] satisfies Question[];

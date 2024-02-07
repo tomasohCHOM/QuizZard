@@ -11,6 +11,10 @@ export const actions: Actions = {
 
 		await supabase
 			.from("quiz")
-			.insert({ name: "MATH 251A-01 10.4 Quiz", question_set: sample, user_id: session.user.id });
+			.insert({
+				name: "MATH 251A-01 10.4-10.5 Quiz",
+				question_set: sample,
+				user_id: session.user.id
+			});
 	}
 };
