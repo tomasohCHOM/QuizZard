@@ -21,13 +21,31 @@
 
 			{#each { length: numQuestions } as _, i}
 				<div>
-					<label for="quiz-name">Quiz Question #{i + 1}</label>
+					<label for="question-prompt-{i}">Quiz Question #{i + 1}</label>
 					<input
-						name="quiz-name"
+						name="quesetion-prompt-{i}"
 						type="text"
 						placeholder="Question Prompt"
 						class="w-[min(24rem,100%)] rounded-lg border-2 border-slate-300 bg-primary p-2 outline-none transition hover:brightness-110"
 					/>
+
+					<input
+						name="correct-answer-{i}"
+						type="text"
+						placeholder="Correct Answer"
+						class="w-[min(24rem,100%)] rounded-lg border-2 border-slate-300 bg-primary p-2 outline-none transition hover:brightness-110"
+					/>
+
+					<div class="grid max-w-screen-lg grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+						{#each { length: 3 } as _, j}
+							<input
+								name="incorrect-answer-{i}-{j}"
+								type="text"
+								placeholder="Incorrect Answer #{j}"
+								class="w-[min(24rem,100%)] rounded-lg border-2 border-slate-300 bg-primary p-2 outline-none transition hover:brightness-110"
+							/>
+						{/each}
+					</div>
 				</div>
 			{/each}
 		</div>
