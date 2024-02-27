@@ -23,7 +23,7 @@
 				<div>
 					<label for="question-prompt-{i}">Quiz Question #{i + 1}</label>
 					<input
-						name="quesetion-prompt-{i}"
+						name="question-prompt-{i}"
 						type="text"
 						placeholder="Question Prompt"
 						class="w-[min(24rem,100%)] rounded-lg border-2 border-slate-300 bg-primary p-2 outline-none transition hover:brightness-110"
@@ -36,12 +36,12 @@
 						class="w-[min(24rem,100%)] rounded-lg border-2 border-slate-300 bg-primary p-2 outline-none transition hover:brightness-110"
 					/>
 
-					<div class="grid max-w-screen-lg grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+					<div class="flex max-w-screen-xl gap-2">
 						{#each { length: 3 } as _, j}
 							<input
 								name="incorrect-answer-{i}-{j}"
 								type="text"
-								placeholder="Incorrect Answer #{j}"
+								placeholder="Incorrect Answer #{j + 1}"
 								class="w-[min(24rem,100%)] rounded-lg border-2 border-slate-300 bg-primary p-2 outline-none transition hover:brightness-110"
 							/>
 						{/each}
