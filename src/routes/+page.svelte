@@ -7,6 +7,8 @@
 
 	let recentQuizzes = data.recentQuizzes;
 	let userQuizzes = data.userQuizzes;
+
+	console.log(userQuizzes);
 </script>
 
 <section class="flex flex-col gap-6">
@@ -28,7 +30,7 @@
 			<p>You have no recentQuizzes created at this time.</p>
 		{:else}
 			<div class="grid max-w-screen-2xl grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
-				{#each recentQuizzes as quiz}
+				{#each userQuizzes as quiz}
 					<QuizCard quizId={quiz.id} quizName={quiz.name} quizLength={quiz.question_set?.length} />
 				{/each}
 			</div>

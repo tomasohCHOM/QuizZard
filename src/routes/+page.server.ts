@@ -9,7 +9,7 @@ export const load: PageServerLoad = async ({ locals: { supabase, getSession } })
 	const { data: recentQuizzes, error: recentQuizzesError } = await supabase
 		.from("quiz")
 		.select("")
-		.limit(8)
+		.limit(4)
 		.returns<QuizReturnType[]>();
 
 	if (recentQuizzesError) {
@@ -26,6 +26,7 @@ export const load: PageServerLoad = async ({ locals: { supabase, getSession } })
 			.from("quiz")
 			.select("")
 			.eq("user_id", session.user.id!)
+			.limit(4)
 			.returns<QuizReturnType[]>();
 
 		userQuizzes = data;
