@@ -7,8 +7,6 @@
 
 	let recentQuizzes = data.recentQuizzes;
 	let userQuizzes = data.userQuizzes;
-
-	console.log(userQuizzes);
 </script>
 
 <section class="flex flex-col gap-6">

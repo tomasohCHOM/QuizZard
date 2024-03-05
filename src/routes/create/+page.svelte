@@ -1,9 +1,17 @@
 <script lang="ts">
+	import type { ActionData } from "./$types";
+
+	export let form: ActionData;
+
 	let numQuestions = 1;
 </script>
 
 <section class="flex flex-col gap-4">
 	<h2 class="text-xl font-medium md:text-3xl">Create a New Quiz!</h2>
+
+	{#if form?.status != null}
+		<p class="text-md font-semibold text-red-400 md:text-lg">{form?.status}</p>
+	{/if}
 
 	<form method="POST" class="flex flex-col gap-4">
 		<div class="flex flex-col gap-4 [&>div]:flex [&>div]:flex-col [&>div]:gap-2">
