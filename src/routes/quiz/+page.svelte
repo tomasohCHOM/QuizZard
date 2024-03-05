@@ -1,6 +1,6 @@
 <script lang="ts">
 	import QuizCard from "$lib/components/quiz-card.svelte";
-	import type { PageData } from "../$types";
+	import type { PageData } from "./$types";
 
 	export let data: PageData;
 

@@ -1,7 +1,10 @@
 <script lang="ts">
+	import Icon from "@iconify/svelte";
+
 	export let quizId: number;
 	export let quizName: string;
 	export let quizLength: number;
+	export let isQuizAuthor: boolean = false;
 </script>
 
 <div>
@@ -13,7 +16,12 @@
 			{quizName}
 		</span>
 		<span>
-			<span class="font-semibold">{quizLength}</span> questions
+			<span class="font-semibold">{quizLength} questions</span>
+			{#if isQuizAuthor}
+				<button>
+					<Icon icon="mdi:dots-vertical"></Icon>
+				</button>
+			{/if}
 		</span>
 	</a>
 </div>

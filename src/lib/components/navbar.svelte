@@ -5,6 +5,7 @@
 
 	export let data: PageData;
 	let currentTheme: string;
+	let isSidebarOpen = false;
 
 	onMount(() => {
 		const savedTheme = document.documentElement.getAttribute("data-theme");
@@ -31,13 +32,22 @@
 </script>
 
 <nav class="flex items-center justify-between p-4 shadow-md group-data-[theme='dark']:border-b-2">
-	<a href="/">
-		<span class="cursor-pointer text-xl font-bold">QuizZard</span>
-	</a>
-	<div class="flex items-center justify-center gap-2">
-		<a href="https://github.com/tomasohCHOM/QuizZard" class="flex items-center">
-			<Icon icon="mdi:github" width={40} inline={true} />
+	<div class="flex items-center justify-center gap-4">
+		<button
+			class="cursor-pointer text-contrast md:hidden"
+			on:click={() => (isSidebarOpen = !isSidebarOpen)}
+		>
+			<Icon icon="mdi:menu" width={40} />
+		</button>
+		<a href="/">
+			<span class="cursor-pointer text-xl font-bold">QuizZard</span>
 		</a>
+	</div>
+
+	<div class="hidden items-center justify-center gap-4 md:flex">
+		<a href="/quizzes" class="font-medium"> Quizzes </a>
+
+		<a href="/about" class="font-medium"> About </a>
 
 		<button class="flex items-center" on:click={toggleTheme}>
 			<Icon icon="fluent:dark-theme-20-filled" width={40} inline={true} />
