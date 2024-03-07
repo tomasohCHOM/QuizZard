@@ -19,7 +19,7 @@
 			<span class="font-semibold">{quizLength} questions</span>
 			{#if isQuizAuthor}
 				<button>
-					<Icon icon="mdi:dots-vertical"></Icon>
+					<Icon icon="mdi:dots-vertical" />
 				</button>
 			{/if}
 		</span>
