@@ -1,5 +1,6 @@
-import { error, type Actions, redirect, fail } from "@sveltejs/kit";
+import { error, type Actions, fail } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
+import { v4 as uuidv4 } from "uuid";
 
 export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 	const session = await getSession();
@@ -53,12 +54,19 @@ export const actions: Actions = {
 			quizSet.push(question);
 		}
 
+		const quizId = uuidv4();
+
 		const quiz = await supabase.from("quiz").insert({
+			id: quizId,
 			name: quizName,
 			question_set: quizSet,
 			user_id: session.user.id
 		});
 
-		return { success: true };
+		if (quiz.error) {
+			return error(500, "Server error");
+		}
+
+		return { success: true, quizId };
 	}
 };

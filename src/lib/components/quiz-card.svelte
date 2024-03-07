@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from "@iconify/svelte";
 
-	export let quizId: number;
+	export let quizId: number | string;
 	export let quizName: string;
 	export let quizLength: number;
 	export let isQuizAuthor: boolean = false;

@@ -17,7 +17,7 @@
 		</h3>
 		<div class="flex items-center justify-center gap-4">
 			<a href="/" class="quiz-btn hover:bg-secondary hover:text-contrast">Go Back Home</a>
-			<a href="/" class="quiz-btn-contrast">Check it Out!</a>
+			<a href="/quiz/{form?.quizId}" class="quiz-btn-contrast">Check it Out!</a>
 		</div>
 	</div>
 

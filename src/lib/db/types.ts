@@ -6,27 +6,27 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-export interface Database {
+export type Database = {
   public: {
     Tables: {
       quiz: {
         Row: {
           created_at: string
-          id: number
+          id: string
           name: string
           question_set: Json
           user_id: string
         }
         Insert: {
           created_at?: string
-          id?: number
+          id?: string
           name: string
           question_set: Json
           user_id: string
         }
         Update: {
           created_at?: string
-          id?: number
+          id?: string
           name?: string
           question_set?: Json
           user_id?: string
