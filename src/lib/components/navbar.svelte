@@ -31,7 +31,7 @@
 	}
 </script>
 
-<nav class="flex items-center justify-between p-4 shadow-md group-data-[theme='dark']:border-b-2">
+<nav class="flex items-center justify-between bg-secondary p-4 shadow-sm">
 	<div class="flex items-center justify-center gap-4">
 		<button
 			class="cursor-pointer text-contrast md:hidden"
@@ -45,7 +45,7 @@
 	</div>
 
 	<div class="hidden items-center justify-center gap-4 md:flex">
-		<a href="/quizzes" class="font-medium"> Quizzes </a>
+		<a href="/quiz" class="font-medium"> Quizzes </a>
 
 		<a href="/about" class="font-medium"> About </a>
 

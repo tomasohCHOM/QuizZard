@@ -8,6 +8,7 @@ export default {
 			colors: {
 				primary: "rgb(var(--color-primary))",
 				secondary: "rgb(var(--color-secondary))",
+				contrast_muted: "rgb(var(--color-contrast-muted))",
 				contrast: "rgb(var(--color-contrast))"
 			},
 			fontFamily: {

@@ -1,23 +1,22 @@
 <script lang="ts">
 	export let correctAnswers: boolean[] | null[];
+	export let questionNumber: number;
 </script>
 
-<div
-	class="z-10 mt-8 flex h-6 overflow-hidden rounded-xl bg-secondary group-data-[theme='dark']:border-2"
->
+<div class="mb-8 flex h-6 gap-1 overflow-hidden">
 	{#each correctAnswers as isCorrect, num}
 		{#if isCorrect == null}
-			<div class="flex flex-1 items-center justify-center">
-				{num + 1}
-			</div>
+			<div
+				class="flex-1 rounded-xl {num === questionNumber
+					? 'bg-contrast_muted'
+					: 'bg-secondary'} transition"
+			/>
 		{:else}
 			<div
-				class="flex flex-1 items-center justify-center text-slate-50 {isCorrect
+				class="flex-1 rounded-xl text-slate-50 {isCorrect
 					? 'bg-green-500'
 					: 'bg-red-400'} transition"
-			>
-				{num + 1}
-			</div>
+			/>
 		{/if}
 	{/each}
 </div>

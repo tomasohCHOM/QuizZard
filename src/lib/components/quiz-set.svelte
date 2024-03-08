@@ -27,6 +27,8 @@
 	}
 </script>
 
+<ProgressBar bind:correctAnswers {questionNumber} />
+
 <Question
 	{questionNumber}
 	questionPrompt={questionSet[questionNumber].prompt}
@@ -42,7 +44,7 @@
 		{/if}
 		{#if questionNumber < questionSet.length - 1}
 			<button
-				class="quiz-btn hover:bg-secondary hover:text-contrast"
+				class="quiz-btn"
 				on:click={() => {
 					questionNumber++;
 					answerSelected = false;
@@ -51,7 +53,7 @@
 		{/if}
 		{#if questionNumber > 0}
 			<button
-				class="quiz-btn hover:bg-secondary hover:text-contrast"
+				class="quiz-btn"
 				on:click={() => {
 					questionNumber--;
 					answerSelected = false;
@@ -60,5 +62,3 @@
 		{/if}
 	</div>
 </Question>
-
-<ProgressBar bind:correctAnswers />

@@ -38,14 +38,14 @@
 	{/if}
 
 	<form method="POST" class="flex flex-col gap-4" use:enhance>
-		<div class="flex flex-col gap-4 [&>div]:flex [&>div]:flex-col [&>div]:gap-2">
+		<div class="flex flex-col gap-4 md:gap-6 [&>div]:flex [&>div]:flex-col [&>div]:gap-2">
 			<div>
 				<label for="quiz-name">Name of the Quiz</label>
 				<input
 					name="quiz-name"
 					type="text"
 					placeholder="Name of the Quiz"
-					class="w-[min(24rem,100%)] rounded-lg border-2 border-slate-300 bg-primary p-2 outline-none transition hover:brightness-110"
+					class="w-[min(24rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition hover:brightness-110"
 				/>
 			</div>
 
@@ -58,14 +58,14 @@
 						name="question-prompt-{i}"
 						type="text"
 						placeholder="Question Prompt"
-						class="w-[min(24rem,100%)] rounded-lg border-2 border-slate-300 bg-primary p-2 outline-none transition hover:brightness-110"
+						class="w-[min(24rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition hover:brightness-110"
 					/>
 
 					<input
 						name="correct-answer-{i}"
 						type="text"
 						placeholder="Correct Answer"
-						class="w-[min(24rem,100%)] rounded-lg border-2 border-slate-300 bg-primary p-2 outline-none transition hover:brightness-110"
+						class="w-[min(24rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition hover:brightness-110"
 					/>
 
 					<div class="flex max-w-screen-xl gap-2">
@@ -74,21 +74,15 @@
 								name="incorrect-answer-{i}-{j}"
 								type="text"
 								placeholder="Incorrect Answer #{j + 1}"
-								class="w-[min(24rem,100%)] rounded-lg border-2 border-slate-300 bg-primary p-2 outline-none transition hover:brightness-110"
+								class="w-[min(24rem,100%)] rounded-xl bg-secondary p-2 outline-none transition hover:brightness-110"
 							/>
 						{/each}
-						<button
-							class="rounded-lg border-2 border-slate-300 transition hover:bg-secondary"
-							on:click={() => numIncorrectAnswers[i]++}
-						>
+						<button class="quiz-btn p-0" on:click|preventDefault={() => numIncorrectAnswers[i]++}>
 							<Icon icon="mdi:plus" width={40} />
 						</button>
 
 						{#if numIncorrectAnswers[i] > 1}
-							<button
-								class="rounded-lg border-2 border-slate-300 transition hover:bg-secondary"
-								on:click={() => numIncorrectAnswers[i]--}
-							>
+							<button class="quiz-btn p-0" on:click|preventDefault={() => numIncorrectAnswers[i]--}>
 								<Icon icon="mdi:minus" width={40} />
 							</button>
 						{/if}

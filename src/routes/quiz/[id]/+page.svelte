@@ -24,7 +24,7 @@
 	$: finalPercentage = 100 * (correctAnswerCount / questionSet.length);
 </script>
 
-<section class="max-w-screen-2xl md:p-10">
+<section class="mx-auto max-w-4xl md:p-6">
 	{#if isFinished}
 		<QuizEnd
 			{questionSet}

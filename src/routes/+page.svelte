@@ -20,7 +20,7 @@
 		{/each}
 	</div>
 
-	<a href="/quiz" class="quiz-btn-contrast ml-auto"> View More </a>
+	<a href="/quiz" class="quiz-btn ml-auto">View More</a>
 
 	{#if data.session}
 		<h2 class="text-xl font-medium md:text-3xl">Your Quizzes</h2>
@@ -33,12 +33,9 @@
 				{/each}
 			</div>
 		{/if}
-		<a
-			href="/create"
-			class="theme-shadow theme-opacity flex w-max items-center gap-1 rounded-md bg-secondary py-2 pr-4 transition"
-		>
+		<a href="/create" class="quiz-btn-contrast flex items-center gap-1 rounded-md py-2 pl-2">
 			<Icon class="inline-block" width={40} inline={true} icon="ic:baseline-plus" />
-			<span class="align-middle font-medium">Create a Quiz!</span>
+			<span class="align-middle">Create a Quiz!</span>
 		</a>
 	{/if}
 </section>

@@ -6,27 +6,23 @@
 @tailwind utilities;
 
 @layer components {
-	.theme-shadow {
-		@apply group-data-[theme='dark']:border-2;
-	}
-
 	.theme-opacity {
 		@apply group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110;
 	}
 
 	.quiz-btn {
-		@apply rounded-lg border-2 border-contrast px-6 py-3 font-semibold text-contrast transition hover:bg-contrast hover:text-primary;
+		@apply theme-opacity rounded-lg bg-secondary px-6 py-3 font-semibold text-contrast transition;
 	}
 
 	.quiz-btn-contrast {
-		@apply theme-opacity w-max rounded-lg bg-contrast px-6 py-3 text-lg font-semibold text-primary transition;
+		@apply theme-opacity w-max rounded-lg bg-contrast px-6 py-3 font-semibold text-primary transition;
 	}
 }
 
 :root {
 	--ff-general: "Poppins", sans-serif;
 	--ff-code: "Fira Code", monospace;
-	--color-primary: 255, 255, 255;
+	--color-primary: 245, 245, 245;
 	--color-secondary: 235, 248, 255;
 	--color-contrast: 19, 49, 114;
 
@@ -50,13 +46,15 @@ body {
 }
 
 html[data-theme="light"] {
-	--color-primary: 255, 255, 255;
-	--color-secondary: 235, 248, 255;
-	--color-contrast: 19, 49, 114;
+	--color-primary: 251, 253, 255;
+	--color-secondary: 245, 248, 253;
+	--color-contrast-muted: 221, 232, 250;
+	--color-contrast: 39, 56, 124;
 }
 
 html[data-theme="dark"] {
-	--color-primary: 24, 38, 63;
-	--color-secondary: 55, 83, 145;
+	--color-primary: 26, 33, 37;
+	--color-secondary: 45, 50, 55;
+	--color-contrast-muted: 51, 65, 85;
 	--color-contrast: 187, 204, 230;
 }

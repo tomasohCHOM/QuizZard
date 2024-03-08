@@ -15,7 +15,7 @@
 
 <section class="mt-4 flex flex-col gap-8">
 	<div
-		class="flex min-w-max flex-col gap-4 self-start rounded-lg border-contrast bg-secondary p-6 shadow-md group-data-[theme='dark']:border-2 md:flex-row md:gap-8 md:p-8"
+		class="flex min-w-max flex-col gap-4 self-start rounded-lg bg-secondary p-6 shadow-md md:flex-row md:gap-8 md:p-8"
 	>
 		<ProgressRing
 			progress={correctAnswerCount / questionSet.length}
@@ -29,9 +29,7 @@
 		</div>
 	</div>
 
-	<div
-		class="flex flex-col gap-4 rounded-lg border-contrast bg-secondary p-4 shadow-md group-data-[theme='dark']:border-2"
-	>
+	<div class="flex flex-col gap-4 rounded-lg bg-secondary p-4 shadow-md">
 		{#each questionSet as question, questionNum}
 			<div class="flex flex-col gap-2">
 				<div class="font-medium">

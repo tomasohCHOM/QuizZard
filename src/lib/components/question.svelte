@@ -18,20 +18,22 @@
 
 <section>
 	<div
-		class="mb-8 flex flex-col items-center justify-center rounded-xl border-white bg-secondary p-8 text-contrast shadow-md group-data-[theme='dark']:border-2"
+		class="mb-4 flex flex-col items-center justify-center rounded-xl bg-secondary px-4 py-8 text-contrast shadow-md"
 	>
 		<h2 class="text-2xl font-semibold">Question #{questionNumber + 1}</h2>
-		<p>{questionPrompt}</p>
+		<p class="text-center">{questionPrompt}</p>
 	</div>
 
-	<div class="grid grid-cols-1 items-center justify-center gap-4 sm:grid-cols-2 md:gap-8">
-		{#each answers as answer}
+	<div class="grid grid-cols-1 items-center justify-center gap-2 sm:grid-cols-2">
+		{#each answers as answer, i}
 			<button
-				class="theme-shadow theme-opacity cursor-pointer rounded-xl p-4 font-semibold text-contrast shadow-md transition {answerSelected
+				class="theme-opacity h-20 cursor-pointer rounded-xl p-4 font-semibold text-contrast shadow-md transition md:h-24 {answerSelected
 					? answer === correct
 						? 'bg-green-500'
 						: 'bg-red-400'
-					: ''} {answerSelected ? 'text-slate-50' : 'bg-secondary'}"
+					: i % 2 === 0
+						? 'bg-secondary'
+						: 'bg-contrast_muted'} {answerSelected ? 'text-slate-50' : 'bg-secondary'}"
 				on:click={() => answerClicked(answer)}
 			>
 				{answer}
