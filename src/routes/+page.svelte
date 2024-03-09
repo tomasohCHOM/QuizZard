@@ -14,7 +14,7 @@
 
 	<h2 class="text-xl font-medium md:text-3xl">Recent Quizzes</h2>
 
-	<div class="grid max-w-screen-2xl grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+	<div class="grid max-w-screen-2xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
 		{#each recentQuizzes as quiz}
 			<QuizCard quizId={quiz.id} quizName={quiz.name} quizLength={quiz.question_set?.length} />
 		{/each}

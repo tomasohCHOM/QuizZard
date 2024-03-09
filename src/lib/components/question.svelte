@@ -11,6 +11,7 @@
 
 	function answerClicked(answer: string) {
 		answerSelected = true;
+		if (answerChoices[questionNumber]) return;
 		correctAnswers[questionNumber] = answer === correct;
 		answerChoices[questionNumber] = answer;
 	}
@@ -27,13 +28,16 @@
 	<div class="grid grid-cols-1 items-center justify-center gap-2 sm:grid-cols-2">
 		{#each answers as answer, i}
 			<button
-				class="theme-opacity h-20 cursor-pointer rounded-xl p-4 font-semibold text-contrast shadow-md transition md:h-24 {answerSelected
+				class="theme-opacity h-20 cursor-pointer rounded-xl p-4 font-semibold text-contrast shadow-md transition md:h-24
+        {answerChoices[questionNumber]
 					? answer === correct
 						? 'bg-green-500'
 						: 'bg-red-400'
-					: i % 2 === 0
+					: ''} {answerChoices[questionNumber]
+					? 'cursor-not-allowed text-slate-50'
+					: Math.floor((i + 1) / 2) % 2 === 0
 						? 'bg-secondary'
-						: 'bg-contrast_muted'} {answerSelected ? 'text-slate-50' : 'bg-secondary'}"
+						: 'bg-contrast_muted'}"
 				on:click={() => answerClicked(answer)}
 			>
 				{answer}
