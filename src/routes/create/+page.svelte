@@ -48,7 +48,7 @@
 					name="quiz-name"
 					type="text"
 					placeholder="Name of the Quiz"
-					class="w-[min(30rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition hover:brightness-110"
+					class="theme-opacity w-[min(30rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition"
 				/>
 			</div>
 
@@ -61,14 +61,14 @@
 						name="question-prompt-{i}"
 						type="text"
 						placeholder="Question Prompt"
-						class="w-[min(30rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition hover:brightness-110"
+						class="theme-opacity w-[min(30rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition"
 					/>
 
 					<input
 						name="correct-answer-{i}"
 						type="text"
 						placeholder="Correct Answer"
-						class="w-[min(30rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition hover:brightness-110"
+						class="theme-opacity w-[min(30rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition"
 					/>
 
 					<div class="mt-6 grid max-w-screen-xl grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
@@ -77,7 +77,7 @@
 								name="incorrect-answer-{i}-{j}"
 								type="text"
 								placeholder="Incorrect Answer #{j + 1}"
-								class="rounded-xl bg-secondary p-2 outline-none transition hover:brightness-110"
+								class="theme-opacity rounded-xl bg-secondary p-2 outline-none transition"
 							/>
 						{/each}
 					</div>

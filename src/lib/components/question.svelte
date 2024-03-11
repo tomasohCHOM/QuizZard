@@ -19,7 +19,7 @@
 
 <section>
 	<div
-		class="mb-4 flex flex-col items-center justify-center rounded-xl bg-secondary px-4 py-8 text-contrast shadow-md"
+		class="mb-4 flex flex-col items-center justify-center rounded-xl bg-contrast_muted px-4 py-8 text-contrast shadow-md"
 	>
 		<h2 class="text-2xl font-semibold">Question #{questionNumber + 1}</h2>
 		<p class="text-center">{questionPrompt}</p>
@@ -33,11 +33,7 @@
 					? answer === correct
 						? 'bg-green-500'
 						: 'bg-red-400'
-					: ''} {answerChoices[questionNumber]
-					? 'cursor-not-allowed text-slate-50'
-					: Math.floor((i + 1) / 2) % 2 === 0
-						? 'bg-secondary'
-						: 'bg-contrast_muted'}"
+					: ''} {answerChoices[questionNumber] ? 'cursor-default text-slate-50' : 'bg-secondary'}"
 				on:click={() => answerClicked(answer)}
 			>
 				{answer}

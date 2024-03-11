@@ -10,8 +10,12 @@
 		@apply group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110;
 	}
 
+	.light-theme-brightness {
+		@apply group-data-[theme='light']:hover:opacity-100 group-data-[theme='light']:hover:brightness-[.98];
+	}
+
 	.quiz-btn {
-		@apply theme-opacity rounded-lg bg-secondary px-6 py-3 font-semibold text-contrast transition;
+		@apply theme-opacity light-theme-brightness rounded-lg bg-secondary px-6 py-3 font-semibold text-contrast transition;
 	}
 
 	.quiz-btn-contrast {
@@ -22,9 +26,10 @@
 :root {
 	--ff-general: "Poppins", sans-serif;
 	--ff-code: "Fira Code", monospace;
-	--color-primary: 245, 245, 245;
-	--color-secondary: 235, 248, 255;
-	--color-contrast: 19, 49, 114;
+	--color-primary: 251, 253, 255;
+	--color-secondary: 245, 248, 253;
+	--color-contrast-muted: 221, 232, 250;
+	--color-contrast: 39, 56, 124;
 
 	color-scheme: light dark;
 	background-color: rgb(var(--color-primary));
@@ -48,7 +53,7 @@ body {
 html[data-theme="light"] {
 	--color-primary: 251, 253, 255;
 	--color-secondary: 245, 248, 253;
-	--color-contrast-muted: 221, 232, 250;
+	--color-contrast-muted: 233, 240, 251;
 	--color-contrast: 39, 56, 124;
 }
 
