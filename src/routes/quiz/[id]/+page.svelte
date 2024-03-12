@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageServerData } from "./$types";
-	import QuizEnd from "$lib/components/quiz-end.svelte";
-	import QuizSet from "$lib/components/quiz-set.svelte";
+	import QuizEnd from "$lib/components/quiz/results/quiz-end.svelte";
+	import QuizSet from "$lib/components/quiz/quiz-set.svelte";
 	import type { QuestionSet } from "$lib/shared";
 
 	export let data: PageServerData;

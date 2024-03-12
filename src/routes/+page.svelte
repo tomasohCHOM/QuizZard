@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from "@iconify/svelte";
 	import type { PageData } from "./$types";
-	import QuizCard from "$lib/components/quiz-card.svelte";
+	import QuizCard from "$lib/components/home/quiz-card.svelte";
 
 	export let data: PageData;
 

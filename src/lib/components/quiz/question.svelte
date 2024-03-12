@@ -1,5 +1,5 @@
 <script lang="ts">
-	import "../../app.css";
+	import "../../../app.css";
 
 	export let questionNumber: number;
 	export let questionPrompt: string;
