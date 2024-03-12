@@ -16,8 +16,6 @@ export const DELETE: RequestHandler = async ({ locals: { supabase, getSession },
 		.eq("user_id", session.user.id)
 		.eq("id", params.id);
 
-	console.log(data);
-
 	if (err) {
 		throw error(500, "Server Error");
 	}
