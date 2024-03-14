@@ -33,16 +33,16 @@
 
 <nav class="flex items-center justify-between bg-secondary p-4 shadow-sm">
 	<div class="flex items-center justify-center gap-4">
-		<button
-			class="cursor-pointer text-contrast md:hidden"
-			on:click={() => (isSidebarOpen = !isSidebarOpen)}
-		>
-			<Icon icon="mdi:menu" width={40} />
-		</button>
 		<a href="/">
 			<span class="cursor-pointer text-xl font-bold">QuizZard</span>
 		</a>
 	</div>
+	<button
+		class="cursor-pointer text-contrast md:hidden"
+		on:click={() => (isSidebarOpen = !isSidebarOpen)}
+	>
+		<Icon icon="mdi:menu" width={40} />
+	</button>
 
 	<div class="hidden items-center justify-center gap-4 md:flex">
 		<a href="/quiz" class="font-medium"> Quizzes </a>
