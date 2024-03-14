@@ -15,12 +15,12 @@
 		<span class="border-b-2 border-contrast py-2 font-semibold">
 			{quizName}
 		</span>
-		<span>
+		<span class="flex items-center justify-between">
 			<span class="font-semibold">{quizLength} questions</span>
 			{#if isQuizAuthor}
-				<button>
+				<a href="/edit/{quizId}">
 					<Icon icon="mdi:dots-vertical" />
-				</button>
+				</a>
 			{/if}
 		</span>
 	</a>

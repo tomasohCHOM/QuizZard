@@ -14,7 +14,12 @@
 
 	<div class="grid max-w-screen-2xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
 		{#each quizzes as quiz}
-			<QuizCard quizId={quiz.id} quizName={quiz.name} quizLength={quiz.question_set?.length} />
+			<QuizCard
+				quizId={quiz.id}
+				quizName={quiz.name}
+				quizLength={quiz.question_set?.length}
+				isQuizAuthor={data.session?.user.id === quiz.user_id}
+			/>
 		{/each}
 	</div>
 </section>

@@ -5,8 +5,8 @@
 
 	export let data: PageData;
 
-	let recentQuizzes = data.recentQuizzes;
-	let userQuizzes = data.userQuizzes;
+	$: recentQuizzes = data.recentQuizzes;
+	$: userQuizzes = data.userQuizzes;
 </script>
 
 <section class="flex flex-col gap-6">
@@ -16,7 +16,12 @@
 
 	<div class="grid max-w-screen-2xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
 		{#each recentQuizzes as quiz}
-			<QuizCard quizId={quiz.id} quizName={quiz.name} quizLength={quiz.question_set?.length} />
+			<QuizCard
+				quizId={quiz.id}
+				quizName={quiz.name}
+				quizLength={quiz.question_set?.length}
+				isQuizAuthor={data.session?.user.id === quiz.user_id}
+			/>
 		{/each}
 	</div>
 
@@ -29,7 +34,12 @@
 		{:else}
 			<div class="grid max-w-screen-2xl grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
 				{#each userQuizzes as quiz}
-					<QuizCard quizId={quiz.id} quizName={quiz.name} quizLength={quiz.question_set?.length} />
+					<QuizCard
+						quizId={quiz.id}
+						quizName={quiz.name}
+						quizLength={quiz.question_set?.length}
+						isQuizAuthor={data.session?.user.id === quiz.user_id}
+					/>
 				{/each}
 			</div>
 		{/if}

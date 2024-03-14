@@ -68,11 +68,15 @@
 		</div>
 	{/each}
 </div>
-<button
-	class="quiz-btn mt-2 w-max px-4 py-2 hover:bg-secondary hover:text-contrast"
-	on:click|preventDefault={updateNumQuestions}
->
-	Add One More
-</button>
+
+<div class="mt-2 flex gap-2">
+	<button
+		class="quiz-btn w-max px-4 py-2 hover:bg-secondary hover:text-contrast"
+		on:click|preventDefault={updateNumQuestions}
+	>
+		Add One More
+	</button>
+	<slot name="delete-btn" />
+</div>
 
 <button class="quiz-btn-contrast" type="submit">Submit Quiz</button>
