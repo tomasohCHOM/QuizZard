@@ -2,9 +2,13 @@
 	import { enhance } from "$app/forms";
 	import type { ActionData } from "./$types";
 	import QuizEdit from "$lib/components/edit/quiz-edit.svelte";
+	import type { PageData } from "./$types";
 
 	export let form: ActionData;
-	export let quizId: number = 0;
+	export let data: PageData;
+
+	$: quizId = data.quizId;
+
 	let numIncorrectAnswers = [1];
 	$: fails = form?.fails;
 </script>
