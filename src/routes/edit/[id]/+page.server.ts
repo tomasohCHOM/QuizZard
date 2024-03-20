@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import type { QuestionSet } from "$lib/shared";
 
 type QuestionSetReturnType = {
+	name: string;
 	question_set: QuestionSet[];
 };
 
@@ -15,7 +16,7 @@ export const load: PageServerLoad = async ({ params, locals: { supabase, getSess
 
 	const { data, error: err } = await supabase
 		.from("quiz")
-		.select("question_set")
+		.select("")
 		.eq("id", params.id)
 		.returns<QuestionSetReturnType[]>();
 
@@ -24,7 +25,7 @@ export const load: PageServerLoad = async ({ params, locals: { supabase, getSess
 	}
 
 	return {
-		questionSet: data[0].question_set,
+		quiz: data[0],
 		quizId: params.id
 	};
 };

@@ -1,7 +1,19 @@
 <script lang="ts">
+	import type { QuestionSet } from "$lib/shared";
 	import Icon from "@iconify/svelte";
 
-	export let numIncorrectAnswers: number[] = [1];
+	type QuestionSetType = {
+		name: string;
+		question_set: QuestionSet[];
+	};
+
+	export let quiz: QuestionSetType = {
+		name: "",
+		question_set: []
+	};
+
+	export let numIncorrectAnswers = [1];
+
 	const updateNumQuestions = () => {
 		numIncorrectAnswers = [...numIncorrectAnswers, 1];
 	};
@@ -13,6 +25,7 @@
 		<input
 			name="quiz-name"
 			type="text"
+			value={quiz.name}
 			placeholder="Name of the Quiz"
 			class="theme-opacity w-[min(30rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition"
 		/>
@@ -26,6 +39,7 @@
 			<input
 				name="question-prompt-{i}"
 				type="text"
+				value={quiz.question_set[i].prompt}
 				placeholder="Question Prompt"
 				class="theme-opacity w-[min(30rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition"
 			/>
