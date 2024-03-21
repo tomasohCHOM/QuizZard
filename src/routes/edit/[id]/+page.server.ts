@@ -25,7 +25,7 @@ export const load: PageServerLoad = async ({ params, locals: { supabase, getSess
 };
 
 export const actions: Actions = {
-	default: async ({ request, locals: { supabase, getSession } }) => {
+	default: async ({ request, url, locals: { supabase, getSession } }) => {
 		const session = await getSession();
 
 		if (!session) {
@@ -69,15 +69,20 @@ export const actions: Actions = {
 			quizSet.push(question);
 		}
 
-		const quiz = await supabase.from("quiz").update({
-			name: quizName,
-			question_set: quizSet
-		});
+		const quizId = url.pathname.substring(url.pathname.lastIndexOf("/") + 1);
+
+		const quiz = await supabase
+			.from("quiz")
+			.update({
+				name: quizName,
+				question_set: quizSet
+			})
+			.eq("id", quizId);
 
 		if (quiz.error) {
 			return error(500, "Server error");
 		}
 
-		return { success: true, quizId: "102" };
+		return { success: true, quizId };
 	}
 };
