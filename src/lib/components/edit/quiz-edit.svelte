@@ -1,15 +1,10 @@
 <script lang="ts">
-	import type { QuestionSet } from "$lib/shared";
+	import type { QuestionSchemaType } from "$lib/shared";
 	import Icon from "@iconify/svelte";
 
-	type QuestionSetType = {
-		name: string;
-		question_set: QuestionSet[];
-	};
-
-	export let quiz: QuestionSetType = {
+	export let quiz: QuestionSchemaType = {
 		name: "",
-		question_set: [{ prompt: "", correctAnswer: "", incorrectAnswers: [], answers: [] }]
+		question_set: [{ prompt: "", correctAnswer: "", incorrectAnswers: [] }]
 	};
 
 	let numIncorrectAnswers = Array.from(

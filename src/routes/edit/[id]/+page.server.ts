@@ -1,12 +1,6 @@
 import { error, type Actions, fail } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
-import { v4 as uuidv4 } from "uuid";
-import type { QuestionSet } from "$lib/shared";
-
-type QuestionSetReturnType = {
-	name: string;
-	question_set: QuestionSet[];
-};
+import type { QuestionSchemaType } from "$lib/shared";
 
 export const load: PageServerLoad = async ({ params, locals: { supabase, getSession } }) => {
 	const session = await getSession();
@@ -18,7 +12,7 @@ export const load: PageServerLoad = async ({ params, locals: { supabase, getSess
 		.from("quiz")
 		.select("")
 		.eq("id", params.id)
-		.returns<QuestionSetReturnType[]>();
+		.returns<QuestionSchemaType[]>();
 
 	if (err || data.length === 0) {
 		error(404, "Not found");

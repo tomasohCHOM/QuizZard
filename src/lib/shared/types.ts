@@ -15,3 +15,9 @@ export interface QuestionSet {
 	correctAnswer: string;
 	incorrectAnswers: string[];
 }
+
+export interface QuestionSchemaType {
+	id?: string;
+	name: string;
+	question_set: Question[];
+}

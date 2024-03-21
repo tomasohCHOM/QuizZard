@@ -4,7 +4,6 @@
 	import QuizEdit from "$lib/components/edit/quiz-edit.svelte";
 
 	export let form: ActionData;
-	let numIncorrectAnswers = [1];
 	$: fails = form?.fails;
 </script>
 
@@ -36,7 +35,7 @@
 	{/if}
 
 	<form method="POST" class="flex flex-col gap-4" use:enhance>
-		<QuizEdit bind:numIncorrectAnswers />
+		<QuizEdit />
 	</form>
 </section>
 
