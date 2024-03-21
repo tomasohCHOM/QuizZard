@@ -9,10 +9,12 @@
 
 	export let quiz: QuestionSetType = {
 		name: "",
-		question_set: []
+		question_set: [{ prompt: "", correctAnswer: "", incorrectAnswers: [], answers: [] }]
 	};
 
-	export let numIncorrectAnswers = [1];
+	let numIncorrectAnswers = Array.from(
+		quiz.question_set.map((quiz) => Math.max(quiz.incorrectAnswers.length, 1))
+	);
 
 	const updateNumQuestions = () => {
 		numIncorrectAnswers = [...numIncorrectAnswers, 1];
@@ -39,7 +41,7 @@
 			<input
 				name="question-prompt-{i}"
 				type="text"
-				value={quiz.question_set[i].prompt}
+				value={quiz.question_set[i]?.prompt ?? ""}
 				placeholder="Question Prompt"
 				class="theme-opacity w-[min(30rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition"
 			/>
@@ -47,6 +49,7 @@
 			<input
 				name="correct-answer-{i}"
 				type="text"
+				value={quiz.question_set[i]?.correctAnswer}
 				placeholder="Correct Answer"
 				class="theme-opacity w-[min(30rem,100%)] rounded-xl bg-secondary p-2 shadow-sm outline-none transition"
 			/>
@@ -56,6 +59,7 @@
 					<input
 						name="incorrect-answer-{i}-{j}"
 						type="text"
+						value={quiz.question_set[i]?.incorrectAnswers[j] ?? ""}
 						placeholder="Incorrect Answer #{j + 1}"
 						class="theme-opacity rounded-xl bg-secondary p-2 outline-none transition"
 					/>

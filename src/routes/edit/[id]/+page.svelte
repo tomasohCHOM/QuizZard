@@ -9,7 +9,6 @@
 
 	$: quizId = data.quizId;
 	$: quiz = data.quiz;
-	$: numIncorrectAnswers = [1];
 	$: fails = form?.fails;
 </script>
 
@@ -39,7 +38,7 @@
 	{/if}
 
 	<form method="POST" class="flex flex-col gap-4" use:enhance>
-		<QuizEdit bind:quiz bind:numIncorrectAnswers>
+		<QuizEdit bind:quiz>
 			<button
 				formaction="?/delete/{quizId}"
 				slot="delete-btn"

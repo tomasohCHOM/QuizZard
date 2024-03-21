@@ -33,7 +33,9 @@
 					? answer === correct
 						? 'bg-green-500'
 						: 'bg-red-400'
-					: ''} {answerChoices[questionNumber] ? 'cursor-default text-slate-50' : 'bg-secondary'}"
+					: ''} {answerChoices[questionNumber]
+					? 'pointer-events-none text-slate-50'
+					: 'bg-secondary'}"
 				on:click={() => answerClicked(answer)}
 			>
 				{answer}

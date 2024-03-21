@@ -75,8 +75,6 @@ export const actions: Actions = {
 			quizSet.push(question);
 		}
 
-		const quizId = uuidv4();
-
 		const quiz = await supabase.from("quiz").update({
 			name: quizName,
 			question_set: quizSet
@@ -86,6 +84,6 @@ export const actions: Actions = {
 			return error(500, "Server error");
 		}
 
-		return { success: true, quizId };
+		return { success: true, quizId: "102" };
 	}
 };
