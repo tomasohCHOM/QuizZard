@@ -2,10 +2,12 @@
 	import { onMount } from "svelte";
 	import Icon from "@iconify/svelte";
 	import type { PageData } from "../../../routes/$types";
+	import Login from "../login.svelte";
 
 	export let data: PageData;
 	let currentTheme: string;
 	let isSidebarOpen = false;
+	let isLoginOpen = false;
 
 	onMount(() => {
 		const savedTheme = document.documentElement.getAttribute("data-theme");
@@ -60,12 +62,11 @@
 				</button>
 			</form>
 		{:else}
-			<a href="/login" class="flex items-center">
-				<button
-					class="rounded-full border-2 border-contrast bg-contrast px-3 py-2 font-medium text-slate-50 transition hover:brightness-110 group-data-[theme='dark']:bg-secondary"
-					>Log in</button
-				>
-			</a>
+			<button on:click={() => (isLoginOpen = true)} class="quiz-btn-contrast rounded-full px-4 py-2"
+				>Log in</button
+			>
 		{/if}
 	</div>
 </nav>
+
+<Login bind:isLoginOpen />
