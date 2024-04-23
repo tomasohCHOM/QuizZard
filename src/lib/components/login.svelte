@@ -2,6 +2,11 @@
 	import Icon from "@iconify/svelte";
 	import PopupContainer from "./popup-container.svelte";
 	export let isLoginOpen = false;
+
+  async function loginAction(provider: string) {
+    await fetch("/login/?login", {method: "POST", headers: {'x-sveltekit-action': 'true'}, body: "{}"});
+    window.location.href = `/login?provider=${provider}`; 
+  }
 </script>
 
 <PopupContainer bind:isOpen={isLoginOpen}>
@@ -13,14 +18,14 @@
 		class="mt-8 flex w-[min(30rem,_90vw)] flex-col items-center justify-center gap-4 rounded-xl border-2 border-contrast p-6"
 	>
 		<button
-			formaction="?/login&provider=github"
+      on:click={() => loginAction("github")}
 			class="theme-opacity flex w-full items-center justify-center gap-4 rounded-lg border-2 border-contrast py-2 transition"
 		>
 			<Icon class="inline-block" width={40} inline={true} icon="mdi:github" />
 			<span class="align-middle font-medium">Sign in with GitHub</span>
 		</button>
 		<button
-			formaction="?/login&provider=discord"
+      on:click={() => loginAction("discord")}
 			class="flex w-full items-center justify-center gap-4 rounded-lg border-2 border-contrast py-2 transition group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110"
 		>
 			<Icon class="inline-block" width={40} inline={true} icon="ic:baseline-discord" />

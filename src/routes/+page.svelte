@@ -30,7 +30,7 @@
 	{#if data.session}
 		<h2 class="text-xl font-medium md:text-3xl">Your Quizzes</h2>
 		{#if userQuizzes.length === 0}
-			<p>You have no recentQuizzes created at this time.</p>
+			<p>You have no recent quizzes created at this time.</p>
 		{:else}
 			<div class="grid max-w-screen-2xl grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
 				{#each userQuizzes as quiz}

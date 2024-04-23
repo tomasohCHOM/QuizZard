@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from "$app/forms";
 	import type { ActionData } from "./$types";
-	import QuizEdit from "$lib/components/edit/quiz-edit.svelte";
+	import QuizForm from "$lib/components/edit/quiz-form.svelte";
 	import type { PageData } from "./$types";
 	import PopupContainer from "$lib/components/popup-container.svelte";
 
@@ -37,7 +37,7 @@
 	{/if}
 
 	<form method="POST" class="flex flex-col gap-4" use:enhance>
-		<QuizEdit bind:quiz>
+		<QuizForm bind:quiz>
 			<button
 				formaction="?/delete/{quizId}"
 				slot="delete-btn"
@@ -45,6 +45,6 @@
 			>
 				Delete Quiz
 			</button>
-		</QuizEdit>
+		</QuizForm>
 	</form>
 </section>

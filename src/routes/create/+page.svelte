@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from "$app/forms";
 	import type { ActionData } from "./$types";
-	import QuizEdit from "$lib/components/edit/quiz-edit.svelte";
+	import QuizForm from "$lib/components/edit/quiz-form.svelte";
 
 	export let form: ActionData;
 	$: fails = form?.fails;
@@ -35,7 +35,7 @@
 	{/if}
 
 	<form method="POST" class="flex flex-col gap-4" use:enhance>
-		<QuizEdit />
+		<QuizForm />
 	</form>
 </section>
 
