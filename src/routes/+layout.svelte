@@ -17,3 +17,7 @@
 <main class="px-10 py-8">
 	<slot />
 </main>
+
+<footer class="px-10 py-8 text-sm">
+	Developed with 🔥 by Chom <span class="font-semibold">@ 2024</span>
+</footer>

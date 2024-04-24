@@ -3,11 +3,13 @@
 	import Icon from "@iconify/svelte";
 	import type { PageData } from "../../../routes/$types";
 	import Login from "../login.svelte";
+	import PopupContainer from "../popup-container.svelte";
 
 	export let data: PageData;
 	let currentTheme: string;
 	let isSidebarOpen = false;
 	let isLoginOpen = false;
+	let isAboutOpen = false;
 
 	onMount(() => {
 		const savedTheme = document.documentElement.getAttribute("data-theme");
@@ -42,6 +44,7 @@
 	<button
 		class="cursor-pointer text-contrast md:hidden"
 		on:click={() => (isSidebarOpen = !isSidebarOpen)}
+		on:blur={() => (isSidebarOpen = false)}
 	>
 		<Icon icon="mdi:menu" width={40} />
 	</button>
@@ -49,10 +52,43 @@
 	<div class="hidden items-center justify-center gap-4 md:flex">
 		<a href="/quiz" class="font-medium"> Quizzes </a>
 
-		<a href="/about" class="font-medium"> About </a>
-
 		<button class="flex items-center" on:click={toggleTheme}>
 			<Icon icon="fluent:dark-theme-20-filled" width={40} inline={true} />
+		</button>
+
+		{#if data.session}
+			<form action="/logout" method="post" class="flex items-center">
+				<button type="submit" class="rounded-full border-2 border-contrast px-3 py-2 font-medium">
+					Log Out
+				</button>
+			</form>
+		{:else}
+			<button on:click={() => (isLoginOpen = true)} class="quiz-btn-contrast rounded-full px-4 py-2"
+				>Log in</button
+			>
+		{/if}
+	</div>
+
+	<div
+		class={`absolute right-8 top-20 flex w-[10rem] flex-col rounded-lg bg-secondary p-2 text-sm font-semibold shadow-md transition-transform md:hidden
+        ${isSidebarOpen ? "scale-100" : "scale-0"}`}
+	>
+		<a
+			href="/quiz"
+			class="w-full p-2 text-start font-medium"
+			on:click={() => (isSidebarOpen = false)}
+		>
+			Quizzes
+		</a>
+
+		<button
+			class="w-full p-2 text-start font-medium"
+			on:click={() => {
+				toggleTheme();
+				isSidebarOpen = false;
+			}}
+		>
+			Toggle Theme
 		</button>
 
 		{#if data.session}

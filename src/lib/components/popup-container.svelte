@@ -1,13 +1,15 @@
 <script lang="ts">
 	export let isOpen: boolean = false;
+	export let isSmall: boolean = false;
 	function toggleContainer() {
 		isOpen = !isOpen;
 	}
 </script>
 
 <div
-	class:active={isOpen}
 	class="floating z-20 flex flex-col gap-4 rounded-lg bg-secondary shadow-lg"
+	class:active={isOpen}
+	class:small={isSmall}
 >
 	<slot />
 </div>
@@ -37,5 +39,9 @@
 	.floating.active {
 		top: 50%;
 		display: block;
+	}
+
+	.floating.small {
+		width: 20rem;
 	}
 </style>

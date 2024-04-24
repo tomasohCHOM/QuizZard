@@ -4,13 +4,10 @@
 	export let isLoginOpen = false;
 </script>
 
-<PopupContainer bind:isOpen={isLoginOpen}>
-	<h2 class="text-2xl font-semibold md:text-3xl">Login</h2>
+<PopupContainer bind:isOpen={isLoginOpen} isSmall={true}>
+	<h2 class="text-center text-2xl font-semibold md:text-3xl">Login</h2>
 
-	<form
-		method="post"
-		class="mt-8 flex w-[min(30rem,_90vw)] flex-col items-center justify-center gap-4 rounded-xl border-2 border-contrast p-6"
-	>
+	<form method="post" class="mt-8 flex flex-col items-center gap-4 rounded-xl">
 		<button
 			type="submit"
 			formaction="/login/?/login&provider=github"
