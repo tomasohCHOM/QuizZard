@@ -34,7 +34,7 @@
 		</div>
 	{/if}
 
-	<form method="POST" class="flex flex-col gap-4" use:enhance>
+	<form method="post" class="flex flex-col gap-4" use:enhance>
 		<QuizForm />
 	</form>
 </section>

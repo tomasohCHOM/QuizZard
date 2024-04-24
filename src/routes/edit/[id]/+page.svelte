@@ -36,10 +36,10 @@
 		</div>
 	{/if}
 
-	<form method="POST" class="flex flex-col gap-4" use:enhance>
+	<form method="post" action="?/edit" class="flex flex-col gap-4" use:enhance>
 		<QuizForm bind:quiz>
 			<button
-				formaction="?/delete/{quizId}"
+				formaction="?/delete"
 				slot="delete-btn"
 				class="quiz-btn w-max border-2 border-red-400 text-red-400"
 			>

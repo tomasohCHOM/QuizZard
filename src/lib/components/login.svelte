@@ -2,15 +2,6 @@
 	import Icon from "@iconify/svelte";
 	import PopupContainer from "./popup-container.svelte";
 	export let isLoginOpen = false;
-
-	async function loginAction(provider: string) {
-		await fetch("/login/?login", {
-			method: "POST",
-			headers: { "x-sveltekit-action": "true" },
-			body: "{}"
-		});
-		window.location.href = `/login?provider=${provider}`;
-	}
 </script>
 
 <PopupContainer bind:isOpen={isLoginOpen}>
