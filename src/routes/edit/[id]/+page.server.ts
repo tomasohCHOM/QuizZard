@@ -69,7 +69,7 @@ export const actions: Actions = {
 			quizSet.push(question);
 		}
 
-		const quizId = url.pathname.substring(url.pathname.lastIndexOf("/") + 1);
+		const quizId = url.pathname.substring(url.pathname.lastIndexOf("/") + 1).trim();
 
 		const quiz = await supabase
 			.from("quiz")
