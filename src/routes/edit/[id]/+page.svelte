@@ -39,9 +39,9 @@
 
 	<form method="post" action="?/edit" class="flex flex-col gap-4" use:enhance>
 		<QuizForm bind:quiz>
+			<button class="quiz-btn-contrast" type="submit">Save Changes</button>
 			<button
 				on:click|preventDefault={() => (isDeleteOpen = true)}
-				slot="delete-btn"
 				class="quiz-btn w-max border-2 border-red-400 text-red-400"
 			>
 				Delete Quiz

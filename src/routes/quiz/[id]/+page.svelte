@@ -33,6 +33,7 @@
 			{finalPercentage}
 			{correctAnswerCount}
 			{totalTime}
+			quizId={data.quizId}
 		/>
 	{:else}
 		<QuizSet

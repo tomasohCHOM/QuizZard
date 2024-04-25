@@ -105,6 +105,5 @@
 </div>
 
 <div class="mt-4 flex gap-2">
-	<button class="quiz-btn-contrast" type="submit">Submit Quiz</button>
-	<slot name="delete-btn" />
+	<slot />
 </div>

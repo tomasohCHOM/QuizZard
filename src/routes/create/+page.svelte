@@ -34,6 +34,8 @@
 	{/if}
 
 	<form method="post" class="flex flex-col gap-4" use:enhance>
-		<QuizForm />
+		<QuizForm>
+			<button class="quiz-btn-contrast" type="submit">Create Quiz</button>
+		</QuizForm>
 	</form>
 </section>
