@@ -8,7 +8,8 @@
 	export let form: ActionData;
 	export let data: PageData;
 
-	$: quizId = data.quizId;
+	let isDeleteOpen = false;
+	// $: quizId = data.quizId;
 	$: quiz = data.quiz;
 	$: fails = form?.fails;
 </script>
@@ -39,7 +40,7 @@
 	<form method="post" action="?/edit" class="flex flex-col gap-4" use:enhance>
 		<QuizForm bind:quiz>
 			<button
-				formaction="?/delete"
+				on:click|preventDefault={() => (isDeleteOpen = true)}
 				slot="delete-btn"
 				class="quiz-btn w-max border-2 border-red-400 text-red-400"
 			>
@@ -48,3 +49,17 @@
 		</QuizForm>
 	</form>
 </section>
+
+<PopupContainer bind:isOpen={isDeleteOpen} isSmall={true}>
+	<form method="post" action="?/delete">
+		<p class="font-medium">Are you sure you want to delete this quiz?</p>
+		<div class="mt-4 flex items-center justify-center gap-2">
+			<button type="submit" class="quiz-btn w-max bg-red-400 text-sm text-slate-50">
+				Delete Quiz
+			</button>
+			<button on:click|preventDefault={() => (isDeleteOpen = false)} class="quiz-btn w-max text-sm">
+				No, Nevermind
+			</button>
+		</div>
+	</form>
+</PopupContainer>

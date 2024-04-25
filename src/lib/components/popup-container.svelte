@@ -42,6 +42,6 @@
 	}
 
 	.floating.small {
-		width: 20rem;
+		width: 23rem;
 	}
 </style>
