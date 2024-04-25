@@ -1,19 +1,6 @@
 <script lang="ts">
-	export let progress: number;
 	export let percentage: number;
-
-	const angle = 360 * progress;
-	const background = `radial-gradient(transparent 50%, transparent 51%),
-    conic-gradient(transparent 0deg ${angle}deg, gainsboro ${angle}deg 360deg),
-    conic-gradient(#3beb00 0deg, #3beb00);`;
 </script>
-
-<!-- <div
-	class="progress-circle flex items-center justify-center border-contrast font-semibold text-[#133172] shadow-md md:text-lg"
-	style={cssVarStyles}
->
-	{percentage}%
-</div> -->
 
 <svg class="relative h-32 w-32" viewBox="0 0 100 100">
 	<circle

@@ -21,10 +21,7 @@
 	<div
 		class="flex min-w-max flex-col gap-4 self-start rounded-lg bg-secondary p-6 shadow-md md:flex-row md:gap-8 md:p-8"
 	>
-		<ProgressRing
-			progress={Number((correctAnswerCount / questionSet.length).toFixed(2))}
-			bind:percentage={finalPercentage}
-		/>
+		<ProgressRing bind:percentage={finalPercentage} />
 		<div>
 			<h3 class="text-lg font-semibold md:text-xl">Number of Correct Answers:</h3>
 			<p>{correctAnswerCount} out of {questionSet.length} correct</p>

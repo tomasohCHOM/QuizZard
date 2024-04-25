@@ -21,7 +21,7 @@
 
 	// Represents whether the user is done with the quiz or not
 	let isFinished = false;
-	$: finalPercentage = 100 * (correctAnswerCount / questionSet.length);
+	$: finalPercentage = Number((100 * (correctAnswerCount / questionSet.length)).toFixed(2));
 </script>
 
 <section class="mx-auto max-w-4xl md:p-6">
