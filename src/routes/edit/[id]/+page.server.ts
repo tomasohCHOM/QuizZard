@@ -1,4 +1,4 @@
-import { error, type Actions, fail } from "@sveltejs/kit";
+import { error, type Actions, fail, redirect } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 import type { QuestionSchemaType } from "$lib/shared";
 
@@ -114,6 +114,6 @@ export const actions: Actions = {
 			throw error(500, "Server Error");
 		}
 
-		return { success: true };
+    throw redirect(303, "/")
 	}
 };

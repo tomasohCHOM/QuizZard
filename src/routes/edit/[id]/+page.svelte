@@ -15,9 +15,9 @@
 </script>
 
 {#if form?.success}
-	<PopupContainer>
+	<PopupContainer isOpen={true}>
 		<h3 class="text-center text-xl font-medium md:text-2xl">Quiz has been updated successfully!</h3>
-		<div class="flex items-center justify-center gap-4">
+		<div class="mt-4 flex items-center justify-center gap-4">
 			<a href="/" class="quiz-btn hover:bg-secondary hover:text-contrast">Go Back Home</a>
 			<a href="/quiz/{form?.quizId}" class="quiz-btn-contrast">Check it Out!</a>
 		</div>
@@ -55,7 +55,7 @@
 		<p class="font-medium">Are you sure you want to delete this quiz?</p>
 		<div class="mt-4 flex items-center justify-center gap-2">
 			<button type="submit" class="quiz-btn w-max bg-red-400 text-sm text-slate-50">
-				Delete Quiz
+				Yes, Delete
 			</button>
 			<button on:click|preventDefault={() => (isDeleteOpen = false)} class="quiz-btn w-max text-sm">
 				No, Nevermind
