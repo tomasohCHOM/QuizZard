@@ -47,7 +47,15 @@ html {
 }
 
 body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 	font-family: var(--ff-general);
+}
+
+footer {
+	margin-block-start: auto;
+	margin-block-end: 1.5rem;
 }
 
 html[data-theme="light"] {

@@ -3,6 +3,7 @@
 	import Navbar from "$lib/components/home/navbar.svelte";
 	import { onMount } from "svelte";
 	import type { PageData } from "./$types";
+	import { fly } from "svelte/transition";
 
 	export let data: PageData;
 
@@ -15,9 +16,16 @@
 <Navbar bind:data />
 
 <main class="px-10 py-8">
-	<slot />
+  {#key data.url}
+    <div
+      in:fly={{ y: 40, duration: 300, delay: 300 }}
+      out:fly={{ y: -40, duration: 300 }}
+    >
+      <slot />
+    </div>
+  {/key}
 </main>
 
-<footer class="px-10 py-8 text-sm">
+<footer class="px-10 text-sm">
 	Developed with 🔥 by Chom <span class="font-semibold">@ 2024</span>
 </footer>
