@@ -11,7 +11,7 @@
 	}
 
 	.light-theme-brightness {
-		@apply group-data-[theme='light']:hover:opacity-100 group-data-[theme='light']:hover:brightness-[.98];
+		@apply group-data-[theme='dark']:hover:opacity-100 group-data-[theme='light']:hover:brightness-[.98];
 	}
 
 	.quiz-btn {

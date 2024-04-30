@@ -1,33 +1,39 @@
 <script lang="ts">
+	import { fade, fly } from "svelte/transition";
+
 	export let isOpen: boolean = false;
-	export let isSmall: boolean = false;
 	function toggleContainer() {
 		isOpen = !isOpen;
 	}
 </script>
 
-<div
-	class="floating z-20 flex flex-col gap-4 rounded-lg bg-secondary shadow-lg"
-	class:active={isOpen}
-	class:small={isSmall}
->
-	<slot />
-</div>
+{#key isOpen}
+	<div
+		class="floating z-20 flex flex-col gap-4 rounded-lg bg-secondary shadow-lg"
+		class:active={isOpen}
+		in:fly={{ y: 40, duration: 150 }}
+		out:fly={{ y: 40, duration: 150 }}
+	>
+		<slot />
+	</div>
 
-<div
-	class:hidden={!isOpen}
-	class="fixed left-0 top-0 z-10 h-screen w-screen bg-white/15"
-	on:click={toggleContainer}
-	on:keydown={toggleContainer}
-	role="button"
-	aria-pressed="false"
-	tabindex="0"
-/>
+	<div
+		class:hidden={!isOpen}
+		class="fixed left-0 top-0 z-10 h-screen w-screen bg-white/15"
+		on:click={toggleContainer}
+		on:keydown={toggleContainer}
+		role="button"
+		aria-pressed="false"
+		tabindex="0"
+		in:fade={{ duration: 100 }}
+		out:fade={{ duration: 100 }}
+	/>
+{/key}
 
 <style>
 	.floating {
 		display: none;
-		width: min(35rem, 80vw);
+		width: min(23rem, 80vw);
 		padding: 1.5rem 2rem;
 		position: fixed;
 		left: 50%;
@@ -39,9 +45,5 @@
 	.floating.active {
 		top: 50%;
 		display: block;
-	}
-
-	.floating.small {
-		width: 23rem;
 	}
 </style>

@@ -4,25 +4,26 @@
 	export let isLoginOpen = false;
 </script>
 
-<PopupContainer bind:isOpen={isLoginOpen} isSmall={true}>
-	<h2 class="text-center text-2xl font-semibold md:text-3xl">Login</h2>
+<PopupContainer bind:isOpen={isLoginOpen}>
+	<h2 class="text-center text-2xl font-semibold md:text-3xl">User Login</h2>
+	<p class="mt-2 text-center">Continue with one of the following social login providers</p>
 
-	<form method="post" class="mt-8 flex flex-col items-center gap-4 rounded-xl">
+	<form method="post" class="mt-4 flex flex-col items-center gap-2 rounded-xl">
 		<button
 			type="submit"
 			formaction="/login/?/login&provider=github"
-			class="theme-opacity flex w-full items-center justify-center gap-4 rounded-lg border-2 border-contrast py-2 transition"
+			class="theme-opacity flex w-full items-center justify-center gap-4 rounded-xl bg-[#24292e] py-1 text-slate-50 transition"
 		>
-			<Icon class="inline-block" width={40} inline={true} icon="mdi:github" />
-			<span class="align-middle font-medium">Sign in with GitHub</span>
+			<Icon class="inline-block" width={32} inline={true} icon="mdi:github" />
+			<span class="align-middle font-medium">Continue with GitHub</span>
 		</button>
 		<button
 			type="submit"
 			formaction="/login/?/login&provider=discord"
-			class="flex w-full items-center justify-center gap-4 rounded-lg border-2 border-contrast py-2 transition group-data-[theme='light']:hover:opacity-85 group-data-[theme='dark']:hover:brightness-110"
+			class="theme-opacity flex w-full items-center justify-center gap-4 rounded-xl bg-[#7289da] py-1 text-slate-50 transition"
 		>
-			<Icon class="inline-block" width={40} inline={true} icon="ic:baseline-discord" />
-			<span class="align-middle font-medium">Sign in with Discord</span>
+			<Icon class="inline-block" width={32} inline={true} icon="ic:baseline-discord" />
+			<span class="align-middle font-medium">Continue with Discord</span>
 		</button>
 	</form>
 </PopupContainer>

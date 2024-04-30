@@ -50,7 +50,7 @@
 	</form>
 </section>
 
-<PopupContainer bind:isOpen={isDeleteOpen} isSmall={true}>
+<PopupContainer bind:isOpen={isDeleteOpen}>
 	<form method="post" action="?/delete">
 		<p class="font-medium">Are you sure you want to delete this quiz?</p>
 		<div class="mt-4 flex items-center justify-center gap-2">

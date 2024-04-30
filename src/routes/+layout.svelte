@@ -19,11 +19,13 @@
 
 <main class="px-10 py-8">
 	{#if ready}
-		{#key data.url}
-			<div in:fly={{ y: 40, duration: 300, delay: 300 }} out:fly={{ y: -40, duration: 300 }}>
-				<slot />
-			</div>
-		{/key}
+		<div in:fly={{ y: 40, duration: 300, delay: 150 }}>
+			{#key data.url}
+				<div in:fly={{ y: 40, duration: 300, delay: 150 }}>
+					<slot />
+				</div>
+			{/key}
+		</div>
 	{/if}
 </main>
 
