@@ -22,9 +22,8 @@
 		class="fixed left-0 top-0 z-10 h-screen w-screen bg-white/15"
 		on:click={toggleContainer}
 		on:keydown={toggleContainer}
-		role="button"
-		aria-pressed="false"
-		tabindex="0"
+		role="presentation"
+		tabindex="-1"
 		in:fade={{ duration: 100 }}
 		out:fade={{ duration: 100 }}
 	/>

@@ -11,6 +11,7 @@
 	export let correctAnswerCount: number;
 
 	let questionNumber = 0;
+	let previousQuestionNumber = 0;
 	let answerSelected = false;
 
 	let startTime = performance.now();
@@ -31,6 +32,7 @@
 
 <Question
 	{questionNumber}
+	{previousQuestionNumber}
 	questionPrompt={questionSet[questionNumber].prompt}
 	answers={questionSet[questionNumber].answers}
 	correct={questionSet[questionNumber].correctAnswer}
@@ -46,6 +48,7 @@
 			<button
 				class="quiz-btn"
 				on:click={() => {
+					previousQuestionNumber = questionNumber;
 					questionNumber++;
 					answerSelected = false;
 				}}>Next</button
@@ -55,6 +58,7 @@
 			<button
 				class="quiz-btn"
 				on:click={() => {
+					previousQuestionNumber = questionNumber;
 					questionNumber--;
 					answerSelected = false;
 				}}>Previous</button

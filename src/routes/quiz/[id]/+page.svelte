@@ -3,6 +3,7 @@
 	import QuizEnd from "$lib/components/quiz/results/quiz-end.svelte";
 	import QuizSet from "$lib/components/quiz/quiz-set.svelte";
 	import type { QuestionSet } from "$lib/shared";
+	import { fly } from "svelte/transition";
 
 	export let data: PageServerData;
 
@@ -26,15 +27,17 @@
 
 <section class="mx-auto max-w-4xl md:p-6">
 	{#if isFinished}
-		<QuizEnd
-			{questionSet}
-			{correctAnswers}
-			{answerChoices}
-			{finalPercentage}
-			{correctAnswerCount}
-			{totalTime}
-			quizId={data.quizId}
-		/>
+		<div in:fly={{ y: 40, duration: 300, delay: 150 }}>
+			<QuizEnd
+				{questionSet}
+				{correctAnswers}
+				{answerChoices}
+				{finalPercentage}
+				{correctAnswerCount}
+				{totalTime}
+				quizId={data.quizId}
+			/>
+		</div>
 	{:else}
 		<QuizSet
 			bind:questionSet

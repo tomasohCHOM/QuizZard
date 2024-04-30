@@ -12,7 +12,7 @@
 		<button
 			type="submit"
 			formaction="/login/?/login&provider=github"
-			class="theme-opacity flex w-full items-center justify-center gap-4 rounded-xl bg-[#24292e] py-1 text-slate-50 transition"
+			class="flex w-full items-center justify-center gap-4 rounded-xl bg-[#24292e] py-1 text-slate-50 transition"
 		>
 			<Icon class="inline-block" width={32} inline={true} icon="mdi:github" />
 			<span class="align-middle font-medium">Continue with GitHub</span>
@@ -20,7 +20,7 @@
 		<button
 			type="submit"
 			formaction="/login/?/login&provider=discord"
-			class="theme-opacity flex w-full items-center justify-center gap-4 rounded-xl bg-[#7289da] py-1 text-slate-50 transition"
+			class="flex w-full items-center justify-center gap-4 rounded-xl bg-[#7289da] py-1 text-slate-50 transition"
 		>
 			<Icon class="inline-block" width={32} inline={true} icon="ic:baseline-discord" />
 			<span class="align-middle font-medium">Continue with Discord</span>

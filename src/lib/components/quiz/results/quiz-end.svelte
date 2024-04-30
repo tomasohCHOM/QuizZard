@@ -2,6 +2,7 @@
 	import type { QuestionSet } from "$lib/shared";
 	import Icon from "@iconify/svelte";
 	import ProgressRing from "./progress-ring.svelte";
+	import { fly } from "svelte/transition";
 
 	export let questionSet: QuestionSet[];
 	export let correctAnswers: boolean[] | null[];
@@ -11,8 +12,9 @@
 	export let totalTime: number;
 	export let quizId: string;
 
-	let currentQuestionNum: number = 0;
-	$: question = questionSet[currentQuestionNum];
+	let questionNumber: number = 0;
+	let previousQuestionNumber: number = 0;
+	$: question = questionSet[questionNumber];
 </script>
 
 <h2 class="text-2xl font-semibold md:text-3xl">Results</h2>
@@ -30,51 +32,65 @@
 		</div>
 	</div>
 
-	<div class="flex flex-col gap-4">
-		<div class="rounded-lg bg-contrast_muted p-8 text-center font-medium">
-			<span class="font-semibold">Question #{currentQuestionNum + 1}:</span>
-			{question.prompt}
-			{#if correctAnswers[currentQuestionNum] == null}
-				<span class="font-semibold">Not answered.</span>
-			{:else if correctAnswers[currentQuestionNum]}
-				<span class="font-semibold text-green-500">Correct!</span>
-			{:else}
-				<span class="font-semibold text-red-400">Incorrect!</span>
-			{/if}
+	{#key questionNumber}
+		<div
+			in:fly={{
+				x: questionNumber > previousQuestionNumber ? 40 : -40,
+				duration: 250
+			}}
+			class="flex flex-col gap-4"
+		>
+			<div class="rounded-lg bg-contrast_muted p-8 text-center font-medium">
+				<span class="font-semibold">Question #{questionNumber + 1}:</span>
+				{question.prompt}
+				{#if correctAnswers[questionNumber] == null}
+					<span class="font-semibold">Not answered.</span>
+				{:else if correctAnswers[questionNumber]}
+					<span class="font-semibold text-green-500">Correct!</span>
+				{:else}
+					<span class="font-semibold text-red-400">Incorrect!</span>
+				{/if}
+			</div>
+			<div class="grid grid-cols-1 gap-2 rounded-md sm:grid-cols-2">
+				{#each question.answers as answer}
+					<div
+						class="flex items-center justify-center rounded-lg bg-secondary p-4 text-center font-medium"
+					>
+						{answer}
+						{#if answer === question.correctAnswer}
+							<span class="ml-2 text-green-500">
+								<Icon inline class="inline" icon="mdi:tick" />
+							</span>
+						{:else if !correctAnswers[questionNumber] && answerChoices[questionNumber] === answer}
+							<span class="ml-2 text-red-400">
+								<Icon inline class="inline" icon="mdi:close" />
+							</span>
+						{/if}
+					</div>
+				{/each}
+			</div>
 		</div>
-		<div class="grid grid-cols-2 gap-2 rounded-md">
-			{#each question.answers as answer}
-				<div
-					class="flex items-center justify-center rounded-lg bg-secondary p-4 text-center font-medium"
-				>
-					{answer}
-					{#if answer === question.correctAnswer}
-						<span class="ml-2 text-green-500">
-							<Icon inline class="inline" icon="mdi:tick" />
-						</span>
-					{:else if !correctAnswers[currentQuestionNum] && answerChoices[currentQuestionNum] === answer}
-						<span class="ml-2 text-red-400">
-							<Icon inline class="inline" icon="mdi:close" />
-						</span>
-					{/if}
-				</div>
-			{/each}
-		</div>
-	</div>
+	{/key}
 
 	<div class="flex items-center justify-between">
 		<button
-			class="quiz-btn mr-auto max-w-min p-0 {currentQuestionNum > 0 ? '' : 'invisible'}"
-			on:click|preventDefault={() => currentQuestionNum--}
+			class="quiz-btn mr-auto max-w-min p-0 {questionNumber > 0 ? '' : 'invisible'}"
+			on:click|preventDefault={() => {
+				previousQuestionNumber = questionNumber;
+				questionNumber--;
+			}}
 		>
 			<Icon icon="ci:chevron-left-md" width={40} />
 		</button>
-		<span class="mx-auto text-sm">{currentQuestionNum + 1}/{questionSet.length}</span>
+		<span class="mx-auto text-sm">{questionNumber + 1}/{questionSet.length}</span>
 		<button
-			class="quiz-btn ml-auto max-w-min p-0 {currentQuestionNum < questionSet.length - 1
+			class="quiz-btn ml-auto max-w-min p-0 {questionNumber < questionSet.length - 1
 				? ''
 				: 'invisible'}"
-			on:click|preventDefault={() => currentQuestionNum++}
+			on:click|preventDefault={() => {
+				previousQuestionNumber = questionNumber;
+				questionNumber++;
+			}}
 		>
 			<Icon icon="ci:chevron-right-md" width={40} />
 		</button>
@@ -82,6 +98,6 @@
 </section>
 
 <div class="mt-8 flex flex-row justify-between">
-	<a href="/" class="quiz-btn">Go Home</a>
+	<a href="/" class="quiz-btn">Go Back Home</a>
 	<a data-sveltekit-reload href="/quiz/{quizId}" class="quiz-btn-contrast">Play Again</a>
 </div>
