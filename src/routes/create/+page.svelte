@@ -10,12 +10,12 @@
 
 {#if form?.success}
 	<PopupContainer isOpen={true}>
-		<h3 class="text-center text-xl font-medium md:text-2xl">
-			Quiz has been submitted successfully!
-		</h3>
+		<h3 class="text-center text-lg font-medium md:text-xl">Quiz has been created successfully!</h3>
 		<div class="mt-4 flex items-center justify-center gap-4">
-			<a href="/" class="quiz-btn hover:bg-secondary hover:text-contrast">Go Back Home</a>
-			<a href="/quiz/{form?.quizId}" class="quiz-btn-contrast">Check it Out!</a>
+			<a href="/" class="quiz-btn p-3 text-sm hover:bg-secondary hover:text-contrast">
+				Go Back Home
+			</a>
+			<a href="/quiz/{form?.quizId}" class="quiz-btn-contrast p-3 text-sm">Check it Out!</a>
 		</div>
 	</PopupContainer>
 {/if}

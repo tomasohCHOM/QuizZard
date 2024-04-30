@@ -18,9 +18,9 @@
 	<PopupContainer isOpen={true}>
 		<h3 class="text-center text-lg font-medium md:text-xl">Quiz has been updated successfully!</h3>
 		<div class="mt-4 flex items-center justify-center gap-4">
-			<a href="/" class="quiz-btn p-3 text-sm hover:bg-secondary hover:text-contrast"
-				>Go Back Home</a
-			>
+			<a href="/" class="quiz-btn p-3 text-sm hover:bg-secondary hover:text-contrast">
+				Go Back Home
+			</a>
 			<a href="/quiz/{form?.quizId}" class="quiz-btn-contrast p-3 text-sm">Check it Out!</a>
 		</div>
 	</PopupContainer>
