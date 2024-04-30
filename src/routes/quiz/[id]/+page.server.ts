@@ -19,6 +19,6 @@ export const load: PageServerLoad = async ({ params, locals: { supabase } }) => 
 
 	return {
 		questionSet: data[0].question_set,
-    quizId: params.id
+		quizId: params.id
 	};
 };

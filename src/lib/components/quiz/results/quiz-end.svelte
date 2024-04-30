@@ -49,11 +49,11 @@
 				>
 					{answer}
 					{#if answer === question.correctAnswer}
-						<span class="text-green-500 ml-2">
+						<span class="ml-2 text-green-500">
 							<Icon inline class="inline" icon="mdi:tick" />
 						</span>
 					{:else if !correctAnswers[currentQuestionNum] && answerChoices[currentQuestionNum] === answer}
-						<span class="text-red-400 ml-2">
+						<span class="ml-2 text-red-400">
 							<Icon inline class="inline" icon="mdi:close" />
 						</span>
 					{/if}
@@ -67,7 +67,7 @@
 			class="quiz-btn mr-auto max-w-min p-0 {currentQuestionNum > 0 ? '' : 'invisible'}"
 			on:click|preventDefault={() => currentQuestionNum--}
 		>
-      <Icon icon="ci:chevron-left-md" width={40} />
+			<Icon icon="ci:chevron-left-md" width={40} />
 		</button>
 		<span class="mx-auto text-sm">{currentQuestionNum + 1}/{questionSet.length}</span>
 		<button

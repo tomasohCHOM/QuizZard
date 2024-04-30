@@ -7,7 +7,9 @@
 
 	export let data: PageData;
 
+	let ready = false;
 	onMount(async () => {
+		ready = true;
 		localStorage.getItem("theme") === "dark" &&
 			document.documentElement.setAttribute("data-theme", "dark");
 	});
@@ -16,14 +18,13 @@
 <Navbar bind:data />
 
 <main class="px-10 py-8">
-  {#key data.url}
-    <div
-      in:fly={{ y: 40, duration: 300, delay: 300 }}
-      out:fly={{ y: -40, duration: 300 }}
-    >
-      <slot />
-    </div>
-  {/key}
+	{#if ready}
+		{#key data.url}
+			<div in:fly={{ y: 40, duration: 300, delay: 300 }} out:fly={{ y: -40, duration: 300 }}>
+				<slot />
+			</div>
+		{/key}
+	{/if}
 </main>
 
 <footer class="px-10 text-sm">
