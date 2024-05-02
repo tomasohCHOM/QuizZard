@@ -50,7 +50,7 @@
 	</button>
 
 	<div class="hidden items-center justify-center gap-4 md:flex">
-		<a href="/quiz" class="font-medium"> Quizzes </a>
+		<a href="/quizzes/1" class="font-medium"> Quizzes </a>
 
 		<button class="flex items-center" on:click={toggleTheme}>
 			<Icon icon="fluent:dark-theme-20-filled" width={40} inline={true} />

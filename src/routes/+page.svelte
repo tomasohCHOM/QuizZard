@@ -25,7 +25,7 @@
 		{/each}
 	</div>
 
-	<a href="/quiz" class="quiz-btn ml-auto">View More</a>
+	<a href="/quizzes/1" class="quiz-btn ml-auto">View More</a>
 
 	{#if data.session}
 		<h2 class="text-xl font-medium md:text-3xl">Your Quizzes</h2>
