@@ -7,10 +7,6 @@ type QuizReturnType = Tables<"quiz"> & { question_set: QuestionSet[] };
 
 export const load: PageServerLoad = async ({ params, locals: { supabase, getSession } }) => {
 	const session = await getSession();
-	if (!session) {
-		throw error(401, "Unauthorized");
-	}
-
 	const pageNumber = Number(params.slug);
 	if (isNaN(pageNumber)) {
 		throw error(404, "Not found");
