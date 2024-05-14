@@ -6,7 +6,6 @@ import type { QuestionSet } from "$lib/shared";
 type QuizReturnType = Tables<"quiz"> & { question_set: QuestionSet[] };
 
 export const load: PageServerLoad = async ({ params, locals: { supabase, getSession } }) => {
-	const session = await getSession();
 	const pageNumber = Number(params.slug);
 	if (isNaN(pageNumber)) {
 		throw error(404, "Not found");

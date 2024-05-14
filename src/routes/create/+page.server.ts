@@ -31,6 +31,7 @@ export const actions: Actions = {
 			id: quizId,
 			name: verifierResponse.quizName!,
 			question_set: verifierResponse.quizSet,
+			quiz_length: verifierResponse.quizSet.length,
 			user_id: session.user.id
 		});
 

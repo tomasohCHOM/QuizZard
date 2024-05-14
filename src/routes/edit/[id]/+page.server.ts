@@ -46,7 +46,8 @@ export const actions: Actions = {
 			.from("quiz")
 			.update({
 				name: verifierResponse.quizName!,
-				question_set: verifierResponse.quizSet
+				question_set: verifierResponse.quizSet,
+				quiz_length: verifierResponse.quizSet.length
 			})
 			.eq("id", quizId);
 
