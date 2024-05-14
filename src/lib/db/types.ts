@@ -15,7 +15,7 @@ export type Database = {
           id: string
           name: string
           question_set: Json
-          quiz_length: number | null
+          quiz_length: number
           user_id: string
         }
         Insert: {
@@ -23,7 +23,7 @@ export type Database = {
           id?: string
           name: string
           question_set: Json
-          quiz_length?: number | null
+          quiz_length: number
           user_id: string
         }
         Update: {
@@ -31,7 +31,7 @@ export type Database = {
           id?: string
           name?: string
           question_set?: Json
-          quiz_length?: number | null
+          quiz_length?: number
           user_id?: string
         }
         Relationships: []

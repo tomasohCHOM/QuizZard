@@ -1,9 +1,5 @@
 import { error } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
-import type { Tables } from "$lib/db/types";
-import type { QuestionSet } from "$lib/shared";
-
-type QuizReturnType = Tables<"quiz"> & { question_set: QuestionSet[] };
 
 export const load: PageServerLoad = async ({ params, locals: { supabase, getSession } }) => {
 	const pageNumber = Number(params.slug);
@@ -13,9 +9,8 @@ export const load: PageServerLoad = async ({ params, locals: { supabase, getSess
 
 	const { data, error: err } = await supabase
 		.from("quiz")
-		.select("")
-		.range(0 + (pageNumber - 1) * 8, 7 + (pageNumber - 1) * 8)
-		.returns<QuizReturnType[]>();
+		.select("id, name, quiz_length, user_id")
+		.range(0 + (pageNumber - 1) * 8, 7 + (pageNumber - 1) * 8);
 
 	if (err) {
 		error(500, "Server error");

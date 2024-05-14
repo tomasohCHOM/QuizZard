@@ -25,7 +25,7 @@
       <QuizCard
         quizId={quiz.id}
         quizName={quiz.name}
-        quizLength={quiz.question_set?.length}
+        quizLength={quiz.quiz_length}
         isQuizAuthor={data.session?.user.id === quiz.user_id}
       />
     {/each}

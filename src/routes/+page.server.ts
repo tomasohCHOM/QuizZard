@@ -1,16 +1,11 @@
-import type { QuestionSet } from "$lib/shared";
 import { error } from "@sveltejs/kit";
-import type { Tables } from "../lib/db/types";
 import type { PageServerLoad } from "./$types";
-
-type QuizReturnType = Tables<"quiz"> & { question_set: QuestionSet[] };
 
 export const load: PageServerLoad = async ({ locals: { supabase, getSession } }) => {
 	const { data: recentQuizzes, error: recentQuizzesError } = await supabase
 		.from("quiz")
-		.select("")
-		.limit(4)
-		.returns<QuizReturnType[]>();
+		.select("id, name, quiz_length, user_id")
+		.limit(4);
 
 	if (recentQuizzesError) {
 		error(500, "Server error");
@@ -18,16 +13,15 @@ export const load: PageServerLoad = async ({ locals: { supabase, getSession } })
 
 	const session = await getSession();
 
-	let userQuizzes: QuizReturnType[] | null = [];
+	let userQuizzes;
 	let userQuizzesErr;
 
 	if (session) {
 		const { data, error } = await supabase
 			.from("quiz")
-			.select("")
+			.select("id, name, quiz_length, user_id")
 			.eq("user_id", session.user.id!)
-			.limit(4)
-			.returns<QuizReturnType[]>();
+			.limit(4);
 
 		userQuizzes = data;
 		userQuizzesErr = error;
