@@ -4,6 +4,7 @@
 	import ProgressRing from "./progress-ring.svelte";
 	import { fly } from "svelte/transition";
 
+	export let quizName: string;
 	export let questionSet: QuestionSet[];
 	export let correctAnswers: boolean[] | null[];
 	export let answerChoices: string[] | null[];
@@ -17,7 +18,7 @@
 	$: question = questionSet[questionNumber];
 </script>
 
-<h2 class="text-2xl font-semibold md:text-3xl">Results</h2>
+<h2 class="text-xl font-semibold md:text-2xl">Results for {quizName}</h2>
 
 <section class="mt-4 flex flex-col gap-8">
 	<div

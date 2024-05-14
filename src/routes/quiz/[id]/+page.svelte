@@ -29,17 +29,19 @@
 	{#if isFinished}
 		<div in:fly={{ y: 40, duration: 300, delay: 150 }}>
 			<QuizEnd
+				quizId={data.quizId}
+				quizName={data.quizName}
 				{questionSet}
 				{correctAnswers}
 				{answerChoices}
 				{finalPercentage}
 				{correctAnswerCount}
 				{totalTime}
-				quizId={data.quizId}
 			/>
 		</div>
 	{:else}
 		<QuizSet
+			quizName={data.quizName}
 			bind:questionSet
 			bind:correctAnswers
 			bind:answerChoices

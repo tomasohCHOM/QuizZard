@@ -3,6 +3,7 @@
 	import ProgressBar from "./progress-bar.svelte";
 	import Question from "./question.svelte";
 
+	export let quizName: string;
 	export let questionSet: QuestionSet[];
 	export let correctAnswers: boolean[] | null[];
 	export let answerChoices: string[] | null[];
@@ -27,6 +28,8 @@
 		});
 	}
 </script>
+
+<h2 class="mb-4 text-xl font-semibold md:text-2xl">{quizName}</h2>
 
 <ProgressBar bind:correctAnswers {questionNumber} />
 
