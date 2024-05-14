@@ -4,6 +4,7 @@
 	import { onMount } from "svelte";
 	import type { PageData } from "./$types";
 	import { fly } from "svelte/transition";
+	import Background from "$lib/components/background.svelte";
 
 	export let data: PageData;
 
@@ -16,6 +17,8 @@
 </script>
 
 <Navbar bind:data />
+
+<Background />
 
 <main class="px-10 py-8">
 	{#if ready}
