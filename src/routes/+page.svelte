@@ -73,6 +73,9 @@
 				{/each}
 			</div>
 		{/if}
+
+		<a href="/my-quizzes/1" class="quiz-btn ml-auto">View My Quizzes</a>
+
 		<a href="/create" class="quiz-btn-contrast flex items-center gap-1 rounded-md py-2 pl-2">
 			<Icon class="inline-block" width={40} inline={true} icon="ic:baseline-plus" />
 			<span class="align-middle">Create a Quiz!</span>
