@@ -27,9 +27,9 @@
 	--ff-general: "Poppins", sans-serif;
 	--ff-code: "Fira Code", monospace;
 	--color-primary: 251, 253, 255;
-	--color-secondary: 245, 248, 253;
+	--color-secondary: 241, 244, 251;
 	--color-contrast-muted: 221, 232, 250;
-	--color-contrast: 39, 56, 124;
+	--color-contrast: 39, 56, 106;
 
 	color-scheme: light dark;
 	background-color: rgb(var(--color-primary));
@@ -60,9 +60,9 @@ footer {
 
 html[data-theme="light"] {
 	--color-primary: 251, 253, 255;
-	--color-secondary: 245, 248, 253;
+	--color-secondary: 241, 244, 251;
 	--color-contrast-muted: 233, 240, 251;
-	--color-contrast: 39, 56, 124;
+	--color-contrast: 39, 56, 106;
 }
 
 html[data-theme="dark"] {

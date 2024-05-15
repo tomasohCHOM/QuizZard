@@ -30,7 +30,7 @@
 <div class="fixed -z-50 h-full w-full">
 	{#each figureProperties as figureProperty}
 		<div
-			class="absolute bg-secondary opacity-60 {figureProperty.x} {figureProperty.y} {figureProperty.size} {figureProperty.rotation}"
+			class="absolute bg-secondary group-data-[theme='dark']:opacity-60 group-data-[theme='light']:opacity-85 {figureProperty.x} {figureProperty.y} {figureProperty.size} {figureProperty.rotation}"
 		/>
 	{/each}
 </div>
