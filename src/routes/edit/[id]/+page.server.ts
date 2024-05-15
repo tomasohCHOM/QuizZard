@@ -1,12 +1,13 @@
-import { error, type Actions, fail, redirect } from "@sveltejs/kit";
+import { error, type Actions, fail } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 import type { QuestionSchemaType } from "$lib/shared";
 import { verifyQuizForm } from "$lib/db/form";
+import { redirect } from "sveltekit-flash-message/server";
 
 export const load: PageServerLoad = async ({ params, locals: { supabase, getSession } }) => {
 	const session = await getSession();
 	if (!session) {
-		throw error(401, "Unauthorized");
+		error(401, "Unauthorized");
 	}
 
 	const { data, error: err } = await supabase
@@ -52,37 +53,37 @@ export const actions: Actions = {
 			.eq("id", quizId);
 
 		if (quiz.error) {
-			return error(500, "Server error");
+			error(500, "Server error");
 		}
 
 		return { success: true, quizId };
 	},
 
-	delete: async ({ locals: { supabase, getSession }, params }) => {
+	delete: async ({ locals: { supabase, getSession }, params, cookies }) => {
 		const session = await getSession();
 		if (!session) {
-			throw error(401, "Unauthorized");
+			error(401, "Unauthorized");
 		}
 
 		if (!params.id) {
-			throw error(404, "Quiz ID not found");
+			error(404, "Quiz ID not found");
 		}
 
 		const { data, error: err } = await supabase.from("quiz").select("user_id").eq("id", params.id);
 
-		if (err) throw error(500, "Server Error");
-		if (!data) throw error(404, "Not found");
+		if (err) error(500, "Server Error");
+		if (!data) error(404, "Not found");
 
 		if (data[0].user_id !== session.user.id) {
-			throw error(401, "Unauthorized");
+			error(401, "Unauthorized");
 		}
 
 		const { error: deleteErr } = await supabase.from("quiz").delete().eq("id", params.id);
 
 		if (deleteErr) {
-			throw error(500, "Server Error");
+			error(500, "Server Error");
 		}
 
-		throw redirect(303, "/");
+		redirect("/", { type: "success", message: "Quiz deleted successfully" }, cookies);
 	}
 };

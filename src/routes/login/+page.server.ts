@@ -8,7 +8,7 @@ export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 	const session = await getSession();
 
 	if (session) {
-		throw redirect(303, "/");
+		redirect(303, "/");
 	}
 };
 
@@ -32,7 +32,7 @@ export const actions = {
 					message: "Something went wrong."
 				});
 			}
-			throw redirect(303, data.url);
+			redirect(303, data.url);
 		}
 	}
 } satisfies Actions;

@@ -6,7 +6,7 @@ import { verifyQuizForm } from "$lib/db/form";
 export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 	const session = await getSession();
 	if (!session) {
-		throw error(401, "Unauthorized");
+		error(401, "Unauthorized");
 	}
 };
 

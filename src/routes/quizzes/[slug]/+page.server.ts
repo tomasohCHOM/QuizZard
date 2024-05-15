@@ -4,7 +4,7 @@ import type { PageServerLoad } from "./$types";
 export const load: PageServerLoad = async ({ params, locals: { supabase, getSession } }) => {
 	const pageNumber = Number(params.slug);
 	if (isNaN(pageNumber)) {
-		throw error(404, "Not found");
+		error(404, "Not found");
 	}
 
 	const { data, error: err } = await supabase
