@@ -27,7 +27,7 @@ export const load: PageServerLoad = async ({ params, locals: { supabase, getSess
 };
 
 export const actions: Actions = {
-	edit: async ({ request, url, locals: { supabase, getSession } }) => {
+	edit: async ({ request, url, cookies, locals: { supabase, getSession } }) => {
 		const session = await getSession();
 
 		if (!session) {
@@ -56,10 +56,10 @@ export const actions: Actions = {
 			error(500, "Server error");
 		}
 
-		return { success: true, quizId };
+		redirect("/", { type: "success", message: "Quiz updated successfully" }, cookies);
 	},
 
-	delete: async ({ locals: { supabase, getSession }, params, cookies }) => {
+	delete: async ({ params, cookies, locals: { supabase, getSession } }) => {
 		const session = await getSession();
 		if (!session) {
 			error(401, "Unauthorized");

@@ -1,21 +1,42 @@
 <script lang="ts">
-	import { initFlash } from "sveltekit-flash-message/client";
+	import { getFlash } from "sveltekit-flash-message";
 	import { page } from "$app/stores";
 	import Icon from "@iconify/svelte";
 	import type { PageData } from "./$types";
 	import QuizCard from "$lib/components/home/quiz-card.svelte";
+	import { beforeNavigate } from "$app/navigation";
+	import { fly } from "svelte/transition";
 
-	const flash = initFlash(page);
+	const flash = getFlash(page);
+
+	beforeNavigate((navigation) => {
+		if ($flash && navigation.from?.url.toString() != navigation.to?.url.toString()) {
+			$flash = undefined;
+		}
+	});
 
 	export let data: PageData;
+	let animationStart = false;
 
 	$: recentQuizzes = data.recentQuizzes;
 	$: userQuizzes = data.userQuizzes;
-	$: console.log($flash);
+	$: if ($flash) {
+		setTimeout(() => {
+			animationStart = true;
+		}, 500);
+	}
 </script>
 
-{#if $flash}
-	<div class="absolute bottom-4 right-4 rounded-lg bg-secondary px-4 py-2">Some message</div>
+{#if $flash && animationStart}
+	<div
+		transition:fly={{ y: 10, duration: 75 }}
+		class="fixed bottom-4 right-4 z-[9999] rounded-md bg-contrast_muted p-4"
+	>
+		{$flash.message}
+		<button on:click={() => ($flash = undefined)}>
+			<Icon class="inline-block" width={18} icon="mdi:close" />
+		</button>
+	</div>
 {/if}
 
 <section class="flex flex-col gap-6">

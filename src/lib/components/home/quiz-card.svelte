@@ -18,7 +18,7 @@
 		<span class="flex items-center justify-between">
 			<span class="font-semibold">{quizLength} questions</span>
 			{#if isQuizAuthor}
-				<a class="transition-all hover:scale-110" href="/edit/{quizId}">
+				<a class="transition-transform hover:scale-110" href="/edit/{quizId}">
 					<Icon icon="mdi:playlist-edit" width={24} inline={true} />
 				</a>
 			{/if}

@@ -2,6 +2,7 @@ import { error, type Actions, fail } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 import { v4 as uuidv4 } from "uuid";
 import { verifyQuizForm } from "$lib/db/form";
+import { redirect } from "sveltekit-flash-message/server";
 
 export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 	const session = await getSession();
@@ -11,7 +12,7 @@ export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 };
 
 export const actions: Actions = {
-	default: async ({ request, locals: { supabase, getSession } }) => {
+	default: async ({ request, cookies, locals: { supabase, getSession } }) => {
 		const session = await getSession();
 
 		if (!session) {
@@ -39,6 +40,6 @@ export const actions: Actions = {
 			return error(500, "Server error");
 		}
 
-		return { success: true, quizId };
+		redirect("/", { type: "success", message: "Quiz created successfully" }, cookies);
 	}
 };
