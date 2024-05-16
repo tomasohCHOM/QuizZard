@@ -4,23 +4,21 @@
 
 <svg class="relative h-32 w-32" viewBox="0 0 100 100">
 	<circle
-		class="stroke-current text-gray-400"
-		stroke-width="5"
 		cx="50"
 		cy="50"
 		r="40"
 		fill="transparent"
+		stroke-width="5"
+		class="stroke-current text-gray-600"
 	/>
 	<circle
-		class="progress-ring__circle stroke-current text-green-500"
-		stroke-width="5"
-		stroke-linecap="round"
 		cx="50"
 		cy="50"
 		r="40"
 		fill="transparent"
-		stroke-dasharray="251.2"
-		stroke-dashoffset="calc(251.2 - (251.2 * {percentage}) / 100)"
+		stroke-width="5"
+		class="progress-ring-circle stroke-current text-green-500"
+		style="stroke-dashoffset: calc(251.2 - (251.2 * {percentage}) / 100);"
 	/>
 	<text
 		x="50"
@@ -35,9 +33,17 @@
 </svg>
 
 <style>
-	.progress-ring__circle {
-		transition: stroke-dashoffset 0.35s;
+	.progress-ring-circle {
+		stroke-linecap: round;
+		stroke-dasharray: 251.2;
 		transform: rotate(-90deg);
 		transform-origin: 50% 50%;
+		animation: progress 1s ease forwards;
+	}
+
+	@keyframes progress {
+		from {
+			stroke-dashoffset: 251.2;
+		}
 	}
 </style>
