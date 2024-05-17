@@ -27,6 +27,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>QuizZard</title>
+</svelte:head>
+
 {#if $flash && animationStart}
 	<div
 		transition:fly={{ y: 10, duration: 75 }}
@@ -39,7 +43,7 @@
 	</div>
 {/if}
 
-<section class="flex flex-col gap-6">
+<section class="mx-auto flex max-w-screen-2xl flex-col gap-6">
 	<h1 class="text-3xl font-semibold md:text-4xl">Home</h1>
 
 	<h2 class="text-xl font-medium md:text-3xl">Recent Quizzes</h2>

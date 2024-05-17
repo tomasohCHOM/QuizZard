@@ -7,6 +7,10 @@
 	$: fails = form?.fails;
 </script>
 
+<svelte:head>
+	<title>Create a Quiz | QuizZard</title>
+</svelte:head>
+
 <section class="flex flex-col gap-4">
 	<h2 class="text-xl font-medium md:text-3xl">Create a New Quiz!</h2>
 

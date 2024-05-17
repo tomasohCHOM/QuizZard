@@ -25,7 +25,11 @@
 	$: finalPercentage = Number((100 * (correctAnswerCount / questionSet.length)).toFixed(2));
 </script>
 
-<section class="mx-auto max-w-4xl md:p-6">
+<svelte:head>
+	<title>{data.quizName} | QuizZard</title>
+</svelte:head>
+
+<section class="mx-auto max-w-4xl md:px-6">
 	{#if isFinished}
 		<div in:fly={{ y: 40, duration: 300, delay: 150 }}>
 			<QuizEnd

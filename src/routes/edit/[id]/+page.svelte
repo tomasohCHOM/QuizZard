@@ -9,10 +9,13 @@
 	export let data: PageData;
 
 	let isDeleteOpen = false;
-	// $: quizId = data.quizId;
 	$: quiz = data.quiz;
 	$: fails = form?.fails;
 </script>
+
+<svelte:head>
+	<title>Edit a Quiz | {quiz.name} | QuizZard</title>
+</svelte:head>
 
 <section class="flex flex-col gap-4">
 	<h2 class="text-xl font-medium md:text-3xl">Edit an Existing Quiz</h2>
