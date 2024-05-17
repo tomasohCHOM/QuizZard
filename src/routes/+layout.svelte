@@ -1,6 +1,6 @@
 <script lang="ts">
 	import "../app.css";
-	import Navbar from "$lib/components/home/navbar.svelte";
+	import Navbar from "$lib/components/navbar.svelte";
 	import { onMount } from "svelte";
 	import type { PageData } from "./$types";
 	import { fly } from "svelte/transition";

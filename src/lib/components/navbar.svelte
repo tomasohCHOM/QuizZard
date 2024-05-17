@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { PageData } from "../../../routes/$types";
+	import type { PageData } from "../../routes/$types";
 	import { onMount } from "svelte";
 	import Icon from "@iconify/svelte";
-	import Login from "../login.svelte";
+	import Login from "./login.svelte";
 
 	export let data: PageData;
 	let currentTheme: string;
