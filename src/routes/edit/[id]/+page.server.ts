@@ -27,11 +27,23 @@ export const load: PageServerLoad = async ({ params, locals: { supabase, getSess
 };
 
 export const actions: Actions = {
-	edit: async ({ request, url, cookies, locals: { supabase, getSession } }) => {
-		const session = await getSession();
+	edit: async ({ request, params, cookies, locals: { supabase, getSession } }) => {
+		const quizId = params.id;
+		if (!quizId) {
+			error(404, "Quiz ID not found");
+		}
 
-		if (!session) {
-			error(404, "Not found");
+		const session = await getSession();
+		const { data: userIdData, error: userIdError } = await supabase
+			.from("quiz")
+			.select("user_id")
+			.eq("id", quizId);
+
+		if (userIdError) error(500, "Server Error");
+		if (!userIdData) error(404, "Not found");
+
+		if (!session || userIdData[0].user_id !== session.user.id) {
+			error(401, "Unauthorized");
 		}
 
 		const data = await request.formData();
@@ -41,9 +53,7 @@ export const actions: Actions = {
 			return fail(400, { fails: verifierResponse.fails });
 		}
 
-		const quizId = url.pathname.substring(url.pathname.lastIndexOf("/") + 1).trim();
-
-		const quiz = await supabase
+		const edit = await supabase
 			.from("quiz")
 			.update({
 				name: verifierResponse.quizName!,
@@ -52,7 +62,7 @@ export const actions: Actions = {
 			})
 			.eq("id", quizId);
 
-		if (quiz.error) {
+		if (edit.error) {
 			error(500, "Server error");
 		}
 
@@ -60,25 +70,22 @@ export const actions: Actions = {
 	},
 
 	delete: async ({ params, cookies, locals: { supabase, getSession } }) => {
-		const session = await getSession();
-		if (!session) {
-			error(401, "Unauthorized");
-		}
-
-		if (!params.id) {
+		const quizId = params.id;
+		if (!quizId) {
 			error(404, "Quiz ID not found");
 		}
 
-		const { data, error: err } = await supabase.from("quiz").select("user_id").eq("id", params.id);
+		const session = await getSession();
+		const { data, error: err } = await supabase.from("quiz").select("user_id").eq("id", quizId);
 
 		if (err) error(500, "Server Error");
 		if (!data) error(404, "Not found");
 
-		if (data[0].user_id !== session.user.id) {
+		if (!session || data[0].user_id !== session.user.id) {
 			error(401, "Unauthorized");
 		}
 
-		const { error: deleteErr } = await supabase.from("quiz").delete().eq("id", params.id);
+		const { error: deleteErr } = await supabase.from("quiz").delete().eq("id", quizId);
 
 		if (deleteErr) {
 			error(500, "Server Error");
