@@ -13,7 +13,7 @@
 	<title>My Quizzes | QuizZard</title>
 </svelte:head>
 
-<section class="flex flex-col gap-6">
+<section class="mx-auto flex max-w-screen-2xl flex-col gap-6">
 	<h2 class="text-xl font-medium md:text-3xl">My Quizzes</h2>
 
 	<a href="/" class="quiz-btn max-w-max"> Go Back Home </a>
