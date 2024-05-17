@@ -16,13 +16,18 @@
 	});
 
 	export let data: PageData;
-	let animationStart = false;
+	let playAnimation = false;
 
 	$: recentQuizzes = data.recentQuizzes;
 	$: userQuizzes = data.userQuizzes;
+
+	// Deteremines delay and how long the toast notification is on for
 	$: if ($flash) {
 		setTimeout(() => {
-			animationStart = true;
+			playAnimation = true;
+			setTimeout(() => {
+				playAnimation = false;
+			}, 5000);
 		}, 500);
 	}
 </script>
@@ -31,14 +36,29 @@
 	<title>QuizZard</title>
 </svelte:head>
 
-{#if $flash && animationStart}
+{#if $flash && playAnimation}
 	<div
 		transition:fly={{ y: 10, duration: 75 }}
-		class="fixed bottom-4 right-4 z-[9999] rounded-md bg-contrast_muted p-4"
+		class="fixed bottom-12 left-8 z-[9999] rounded-md bg-contrast_muted p-3"
 	>
-		{$flash.message}
+		<span>
+			{#if $flash.type === "success"}
+				<Icon
+					inline
+					icon="mdi:tick"
+					class="inline rounded-[50%] border-2 border-green-500 text-green-500"
+				/>
+			{:else}
+				<Icon
+					inline
+					icon="mdi:close"
+					class="inline rounded-[50%] border-2 border-red-400 text-red-400"
+				/>
+			{/if}
+		</span>
+		<span>{$flash.message}</span>
 		<button on:click={() => ($flash = undefined)}>
-			<Icon class="inline-block" width={18} icon="mdi:close" />
+			<Icon class="ml-2 inline" width={18} icon="mdi:close" />
 		</button>
 	</div>
 {/if}
