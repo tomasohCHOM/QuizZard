@@ -3,6 +3,7 @@ import type { PageServerLoad } from "./$types";
 import type { QuestionSchemaType } from "$lib/shared";
 import { verifyQuizForm } from "$lib/db/form";
 import { redirect } from "sveltekit-flash-message/server";
+import { sleep } from "$lib/shared/sleep";
 
 export const load: PageServerLoad = async ({ params, locals: { supabase, getSession } }) => {
 	const session = await getSession();
@@ -28,6 +29,8 @@ export const load: PageServerLoad = async ({ params, locals: { supabase, getSess
 
 export const actions: Actions = {
 	edit: async ({ request, params, cookies, locals: { supabase, getSession } }) => {
+		await sleep(1000);
+
 		const quizId = params.id;
 		if (!quizId) {
 			error(404, "Quiz ID not found");
@@ -63,13 +66,15 @@ export const actions: Actions = {
 			.eq("id", quizId);
 
 		if (edit.error) {
-			error(500, "Server error");
+			redirect("/", { type: "error", message: "Could not save quiz changes" }, cookies);
 		}
 
 		redirect("/", { type: "success", message: "Quiz updated successfully" }, cookies);
 	},
 
 	delete: async ({ params, cookies, locals: { supabase, getSession } }) => {
+		await sleep(1000);
+
 		const quizId = params.id;
 		if (!quizId) {
 			error(404, "Quiz ID not found");
@@ -88,7 +93,7 @@ export const actions: Actions = {
 		const { error: deleteErr } = await supabase.from("quiz").delete().eq("id", quizId);
 
 		if (deleteErr) {
-			error(500, "Server Error");
+			redirect("/", { type: "error", message: "Could not delete the quiz" }, cookies);
 		}
 
 		redirect("/", { type: "success", message: "Quiz deleted successfully" }, cookies);

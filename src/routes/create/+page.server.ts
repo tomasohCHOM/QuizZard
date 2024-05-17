@@ -3,6 +3,7 @@ import type { PageServerLoad } from "./$types";
 import { v4 as uuidv4 } from "uuid";
 import { verifyQuizForm } from "$lib/db/form";
 import { redirect } from "sveltekit-flash-message/server";
+import { sleep } from "$lib/shared/sleep";
 
 export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 	const session = await getSession();
@@ -13,10 +14,11 @@ export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 
 export const actions: Actions = {
 	default: async ({ request, cookies, locals: { supabase, getSession } }) => {
-		const session = await getSession();
+		await sleep(1000);
 
+		const session = await getSession();
 		if (!session) {
-			error(404, "Not found");
+			error(401, "Unauthorized");
 		}
 
 		const data = await request.formData();
@@ -37,7 +39,7 @@ export const actions: Actions = {
 		});
 
 		if (quiz.error) {
-			return error(500, "Server error");
+			redirect("/", { type: "error", message: "Quiz failed to be created" }, cookies);
 		}
 
 		redirect("/", { type: "success", message: "Quiz created successfully" }, cookies);
