@@ -1,10 +1,11 @@
 <script lang="ts">
 	export let isContrast: boolean = false;
+	export let large: boolean = false;
 </script>
 
 <svg
 	aria-hidden="true"
-	class="inline h-6 w-6 animate-spin {isContrast
+	class="inline animate-spin {large ? 'h-10 w-10' : 'h-6 w-6'} {isContrast
 		? "fill-contrast_muted group-data-[theme='dark']:text-gray-200 group-data-[theme='light']:text-gray-600"
 		: "fill-contrast group-data-[theme='dark']:text-gray-500 group-data-[theme='light']:text-gray-200"}"
 	viewBox="0 0 100 101"
