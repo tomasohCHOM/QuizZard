@@ -1,4 +1,4 @@
-import { error } from "@sveltejs/kit";
+import { error, fail, type Actions } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params, locals: { supabase, getSession } }) => {
@@ -25,4 +25,25 @@ export const load: PageServerLoad = async ({ params, locals: { supabase, getSess
 	}
 
 	return { quizzes: data ?? [], pageNumber, numQuizzes };
+};
+
+export const actions: Actions = {
+	search: async ({ request, locals: { supabase } }) => {
+		const formData = await request.formData();
+		const searchQuery = formData.get("quiz-search-bar")?.toString();
+		if (!searchQuery) {
+			return fail(400, { fail: "Search query is empty" });
+		}
+		const { data, error: err } = await supabase
+			.from("quiz")
+			.select("id, name, quiz_length, user_id");
+		if (err) {
+			error(500, "Server error");
+		}
+		const searchResults = data.filter((quiz) => quiz.name.toLowerCase().includes(searchQuery));
+		return { searchResults: searchResults };
+	},
+	reset: async () => {
+		return;
+	}
 };

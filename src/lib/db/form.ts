@@ -5,7 +5,7 @@ interface VerifierResponse {
 }
 
 export function verifyQuizForm(data: FormData): VerifierResponse {
-	const quizName = data.get("quiz-name") as string;
+	const quizName = data.get("quiz-name")?.toString()!;
 	const fails: string[] = [];
 
 	if (quizName === "") {
