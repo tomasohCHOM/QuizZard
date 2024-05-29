@@ -10,8 +10,6 @@
 	let quizzes = data.quizzes;
 	let pageNumber = data.pageNumber;
 	let maxPages = Math.floor(data.numQuizzes / 8) + 1;
-
-	$: console.log(form);
 </script>
 
 <svelte:head>
