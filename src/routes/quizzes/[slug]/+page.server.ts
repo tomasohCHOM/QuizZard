@@ -1,5 +1,6 @@
 import { error, fail, type Actions } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
+import { generateSearchResults } from "$lib/db/search";
 
 export const load: PageServerLoad = async ({ params, locals: { supabase, getSession } }) => {
 	const pageNumber = Number(params.slug);
@@ -40,7 +41,7 @@ export const actions: Actions = {
 		if (err) {
 			error(500, "Server error");
 		}
-		const searchResults = data.filter((quiz) => quiz.name.toLowerCase().includes(searchQuery));
+		const searchResults = generateSearchResults(data, searchQuery);
 		return { searchResults: searchResults };
 	},
 	reset: async () => {
