@@ -19,6 +19,7 @@
 	let correctAnswerCount = 0;
 
 	let totalTime: number = 0;
+	let quitWindowOpen = false;
 
 	// Represents whether the user is done with the quiz or not
 	let isFinished = false;
@@ -50,8 +51,9 @@
 			bind:correctAnswers
 			bind:answerChoices
 			bind:isFinished
-			bind:correctAnswerCount
 			bind:totalTime
+			bind:correctAnswerCount
+			bind:quitWindowOpen
 		/>
 	{/if}
 </section>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { QuestionSet } from "$lib/shared";
+	import PopupContainer from "../popup-container.svelte";
 	import ProgressBar from "./progress-bar.svelte";
 	import Question from "./question.svelte";
 
@@ -10,6 +11,7 @@
 	export let isFinished: boolean;
 	export let totalTime: number;
 	export let correctAnswerCount: number;
+	export let quitWindowOpen: boolean;
 
 	let questionNumber = 0;
 	let previousQuestionNumber = 0;
@@ -29,7 +31,15 @@
 	}
 </script>
 
-<h2 class="mb-4 text-xl font-semibold md:text-2xl">{quizName}</h2>
+<div class="mb-4 flex flex-col-reverse justify-between gap-2 sm:flex-row sm:items-center">
+	<h2 class="text-xl font-semibold md:text-2xl">{quizName}</h2>
+	<button
+		on:click={() => (quitWindowOpen = true)}
+		class="quiz-btn w-max border-2 border-red-400 px-4 py-1 text-red-400 sm:px-6 sm:py-2"
+	>
+		Quit
+	</button>
+</div>
 
 <ProgressBar bind:correctAnswers {questionNumber} />
 
@@ -69,3 +79,15 @@
 		{/if}
 	</div>
 </Question>
+
+<PopupContainer bind:isOpen={quitWindowOpen}>
+	<div>
+		<p class="font-medium">Are you sure you want to quit?</p>
+		<div class="mt-4 flex items-center justify-center gap-2">
+			<a href="/" class="quiz-btn w-max bg-red-400 text-sm text-slate-50"> Yes, exit quiz </a>
+			<button on:click={() => (quitWindowOpen = false)} class="quiz-btn w-max text-sm">
+				No, Nevermind
+			</button>
+		</div>
+	</div>
+</PopupContainer>

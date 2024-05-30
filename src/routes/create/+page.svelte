@@ -32,8 +32,8 @@
 		use:enhance={() => {
 			formLoading = true;
 			return async ({ update }) => {
+				await update();
 				formLoading = false;
-				update();
 			};
 		}}
 	>
