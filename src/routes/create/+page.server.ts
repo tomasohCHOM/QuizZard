@@ -3,7 +3,6 @@ import type { PageServerLoad } from "./$types";
 import { v4 as uuidv4 } from "uuid";
 import { verifyQuizForm } from "$lib/db/form";
 import { redirect } from "sveltekit-flash-message/server";
-import { sleep } from "$lib/shared/sleep";
 
 export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 	const session = await getSession();
@@ -14,8 +13,6 @@ export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 
 export const actions: Actions = {
 	default: async ({ request, cookies, locals: { supabase, getSession } }) => {
-		await sleep(1000);
-
 		const session = await getSession();
 		if (!session) {
 			error(401, "Unauthorized");
