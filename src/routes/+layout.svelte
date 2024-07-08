@@ -20,7 +20,7 @@
 
 <Background />
 
-<main class="px-10 py-8">
+<main class="mt-16 px-10 py-8">
 	{#if ready}
 		<div in:fly={{ y: 40, duration: 300, delay: 150 }}>
 			{#key data.url}

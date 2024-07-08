@@ -33,7 +33,7 @@
 	}
 </script>
 
-<nav class="flex items-center justify-between bg-secondary p-4 shadow-sm">
+<nav class="fixed flex w-full items-center justify-between bg-secondary p-4 shadow-sm">
 	<div class="flex items-center justify-center gap-4">
 		<a href="/">
 			<span class="cursor-pointer text-xl font-bold">QuizZard</span>
@@ -76,7 +76,7 @@
 
 	<!-- SIDEBAR FOR MOBILE VIEW -->
 	<div
-		class="absolute right-8 top-20 flex w-[10rem] flex-col justify-center gap-4
+		class="fixed right-8 top-20 flex w-[10rem] flex-col justify-center gap-4
     rounded-lg bg-secondary p-3 pl-4 shadow-md transition-transform md:hidden
     {isSidebarOpen ? 'scale-100' : 'scale-0'}"
 	>
