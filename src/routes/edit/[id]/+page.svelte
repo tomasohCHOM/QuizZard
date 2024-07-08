@@ -23,7 +23,7 @@
 </svelte:head>
 
 <section class="flex flex-col gap-4">
-	<h2 class="text-xl font-medium md:text-3xl">Edit an Existing Quiz</h2>
+	<h1 class="text-xl font-medium md:text-3xl">Edit an Existing Quiz</h1>
 
 	<form
 		method="post"

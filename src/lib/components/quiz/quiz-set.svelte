@@ -32,7 +32,7 @@
 </script>
 
 <div class="mb-4 flex flex-col-reverse justify-between gap-2 sm:flex-row sm:items-center">
-	<h2 class="text-xl font-semibold md:text-2xl">{quizName}</h2>
+	<h1 class="text-xl font-semibold md:text-2xl">{quizName}</h1>
 	<button
 		on:click={() => (quitWindowOpen = true)}
 		class="quiz-btn w-max border-2 border-red-400 px-4 py-1 text-red-400 sm:px-6 sm:py-2"

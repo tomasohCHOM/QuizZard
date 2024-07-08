@@ -20,7 +20,7 @@
 </svelte:head>
 
 <section class="mx-auto flex max-w-screen-2xl flex-col gap-6">
-	<h2 class="text-xl font-medium md:text-3xl">My Quizzes</h2>
+	<h1 class="text-xl font-medium md:text-3xl">My Quizzes</h1>
 
 	<form
 		action="?/search"

@@ -18,7 +18,7 @@
 	$: question = questionSet[questionNumber];
 </script>
 
-<h2 class="text-xl font-semibold md:text-2xl">Results for {quizName}</h2>
+<h1 class="text-xl font-semibold md:text-2xl">Results for {quizName}</h1>
 
 <section class="mt-4 flex flex-col gap-8">
 	<div
