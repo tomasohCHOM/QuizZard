@@ -3,7 +3,6 @@ import type { PageServerLoad } from "./$types";
 import type { QuestionSchemaType } from "$lib/shared";
 import { verifyQuizForm } from "$lib/db/form";
 import { redirect } from "sveltekit-flash-message/server";
-import { sleep } from "$lib/shared/sleep";
 
 export const load: PageServerLoad = async ({ params, locals: { supabase, getSession } }) => {
 	const session = await getSession();
@@ -29,8 +28,6 @@ export const load: PageServerLoad = async ({ params, locals: { supabase, getSess
 
 export const actions: Actions = {
 	edit: async ({ request, params, cookies, locals: { supabase, getSession } }) => {
-		await sleep(1000);
-
 		const quizId = params.id;
 		if (!quizId) {
 			error(404, "Quiz ID not found");
@@ -73,8 +70,6 @@ export const actions: Actions = {
 	},
 
 	delete: async ({ params, cookies, locals: { supabase, getSession } }) => {
-		await sleep(1000);
-
 		const quizId = params.id;
 		if (!quizId) {
 			error(404, "Quiz ID not found");
