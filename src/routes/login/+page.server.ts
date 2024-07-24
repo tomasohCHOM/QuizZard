@@ -2,7 +2,7 @@ import type { Provider } from "@supabase/supabase-js";
 import { fail, redirect, type Actions } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 
-const OAUTH_PROVIDERS = ["github", "discord"];
+const OAUTH_PROVIDERS = ["google", "github", "discord"];
 
 export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 	const session = await getSession();
