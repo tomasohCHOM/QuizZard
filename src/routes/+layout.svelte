@@ -29,6 +29,8 @@
 				</div>
 			{/key}
 		</div>
+	{:else}
+		<p class="text-center text-lg font-semibold">Fetching quizzes for you...</p>
 	{/if}
 </main>
 

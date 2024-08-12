@@ -66,6 +66,8 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
+	color-scheme: dark;
+
 	--color-primary: 26, 33, 37;
 	--color-secondary: 45, 50, 55;
 	--color-contrast-muted: 51, 65, 85;

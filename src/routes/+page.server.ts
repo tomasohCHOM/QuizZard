@@ -13,19 +13,15 @@ export const load: PageServerLoad = async ({ locals: { supabase, getSession } })
 
 	const session = await getSession();
 
-	let userQuizzes;
-	let userQuizzesErr;
-
-	if (session) {
-		const { data, error } = await supabase
-			.from("quiz")
-			.select("id, name, quiz_length, user_id")
-			.eq("user_id", session.user.id!)
-			.limit(4);
-
-		userQuizzes = data;
-		userQuizzesErr = error;
+	if (!session) {
+		return { recentQuizzes: recentQuizzes ?? [], userQuizzes: [] };
 	}
+
+	const { data: userQuizzes, error: userQuizzesErr } = await supabase
+		.from("quiz")
+		.select("id, name, quiz_length, user_id")
+		.eq("user_id", session.user.id!)
+		.limit(4);
 
 	if (userQuizzesErr) {
 		error(500, "Server error");

@@ -4,10 +4,15 @@
 	import Icon from "@iconify/svelte";
 	import type { PageData } from "./$types";
 	import QuizCard from "$lib/components/quiz-card.svelte";
-	import { beforeNavigate } from "$app/navigation";
+	import { beforeNavigate, invalidateAll } from "$app/navigation";
 	import { fly } from "svelte/transition";
+	import { onMount } from "svelte";
 
 	const flash = getFlash(page);
+
+	onMount(() => {
+		invalidateAll();
+	});
 
 	beforeNavigate((navigation) => {
 		if ($flash && navigation.from?.url.toString() != navigation.to?.url.toString()) {
