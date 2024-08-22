@@ -8,19 +8,22 @@
 	import { fly } from "svelte/transition";
 	import { onMount } from "svelte";
 
-	const flash = getFlash(page);
+	export let data: PageData;
 
 	onMount(() => {
-		invalidateAll();
+		const { data: authStateChangeData } = data.supabase.auth.onAuthStateChange((_, session) => {
+			if (session) invalidateAll();
+		});
+		return () => authStateChangeData.subscription.unsubscribe();
 	});
 
+	const flash = getFlash(page);
 	beforeNavigate((navigation) => {
 		if ($flash && navigation.from?.url.toString() != navigation.to?.url.toString()) {
 			$flash = undefined;
 		}
 	});
 
-	export let data: PageData;
 	let playAnimation = false;
 
 	$: recentQuizzes = data.recentQuizzes;
