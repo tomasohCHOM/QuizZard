@@ -5,6 +5,7 @@
 	import type { PageData } from "./$types";
 	import { fly } from "svelte/transition";
 	import Background from "$lib/components/background.svelte";
+	import Spinner from "$lib/components/spinner.svelte";
 
 	export let data: PageData;
 
@@ -30,7 +31,9 @@
 			{/key}
 		</div>
 	{:else}
-		<p class="text-center text-lg font-semibold">Fetching quizzes for you...</p>
+		<div class="grid items-center justify-center">
+			<Spinner large={true} />
+		</div>
 	{/if}
 </main>
 
