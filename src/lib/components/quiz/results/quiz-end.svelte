@@ -102,3 +102,7 @@
 	<a href="/" class="quiz-btn">Go Back Home</a>
 	<a data-sveltekit-reload href="/quiz/{quizId}" class="quiz-btn-contrast">Play Again</a>
 </div>
+
+<div class="mt-4 text-sm">
+	View as <a target="_blank" href={`${quizId}.txt`} class="underline"> TXT </a>
+</div>
