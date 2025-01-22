@@ -33,7 +33,7 @@
 	}
 </script>
 
-<nav class="fixed flex w-full items-center justify-between bg-secondary p-4 shadow-sm">
+<nav class="fixed z-10 flex w-full items-center justify-between bg-secondary p-4 shadow-sm">
 	<div class="flex items-center justify-center gap-4">
 		<a href="/">
 			<span class="cursor-pointer text-xl font-bold">QuizZard</span>
