@@ -21,6 +21,10 @@
 	let totalTime: number = 0;
 	let quitWindowOpen = false;
 
+	// Give the option to hide answers or not
+	let notStarted = true;
+	let hideAnswers = false;
+
 	// Represents whether the user is done with the quiz or not
 	let isFinished = false;
 	$: finalPercentage = Number((100 * (correctAnswerCount / questionSet.length)).toFixed(2));
@@ -31,7 +35,34 @@
 </svelte:head>
 
 <section class="mx-auto max-w-4xl md:px-6">
-	{#if isFinished}
+	{#if notStarted}
+		<div in:fly={{ y: 40, duration: 300, delay: 150 }} class="mt-8">
+			<h2 class="text-center text-2xl font-semibold md:text-3xl">
+				How would you like to take the quiz?
+			</h2>
+			<div
+				class="mx-auto mt-6 flex w-full max-w-screen-sm flex-col items-center justify-center gap-4 sm:flex-row"
+			>
+				<button
+					class="quiz-btn h-40 w-full border-4 border-secondary bg-transparent text-lg"
+					on:click={() => {
+						notStarted = false;
+					}}
+				>
+					Show Answers Immediately
+				</button>
+				<button
+					class="quiz-btn h-40 w-full border-4 border-secondary bg-transparent text-lg"
+					on:click={() => {
+						hideAnswers = true;
+						notStarted = false;
+					}}
+				>
+					Only Show Answers At The End
+				</button>
+			</div>
+		</div>
+	{:else if isFinished}
 		<div in:fly={{ y: 40, duration: 300, delay: 150 }}>
 			<QuizEnd
 				quizId={data.quizId}
@@ -54,6 +85,7 @@
 			bind:totalTime
 			bind:correctAnswerCount
 			bind:quitWindowOpen
+			bind:hideAnswers
 		/>
 	{/if}
 </section>

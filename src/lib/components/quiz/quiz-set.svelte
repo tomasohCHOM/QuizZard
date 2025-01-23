@@ -12,6 +12,7 @@
 	export let totalTime: number;
 	export let correctAnswerCount: number;
 	export let quitWindowOpen: boolean;
+	export let hideAnswers: boolean;
 
 	let questionNumber = 0;
 	let previousQuestionNumber = 0;
@@ -41,7 +42,7 @@
 	</button>
 </div>
 
-<ProgressBar bind:correctAnswers {questionNumber} />
+<ProgressBar bind:correctAnswers {questionNumber} {hideAnswers} />
 
 <Question
 	{questionNumber}
@@ -52,6 +53,7 @@
 	bind:answerSelected
 	bind:correctAnswers
 	bind:answerChoices
+	{hideAnswers}
 >
 	<div class="mt-4 flex flex-row-reverse justify-between" slot="buttons">
 		{#if questionNumber === questionSet.length - 1}

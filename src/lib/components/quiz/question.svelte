@@ -10,6 +10,7 @@
 	export let answerSelected: boolean = false;
 	export let correctAnswers: boolean[] | null[];
 	export let answerChoices: string[] | null[];
+	export let hideAnswers: boolean;
 
 	function answerClicked(answer: string) {
 		answerSelected = true;

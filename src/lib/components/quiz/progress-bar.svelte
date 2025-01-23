@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let correctAnswers: boolean[] | null[];
 	export let questionNumber: number;
+	export let hideAnswers: boolean;
 </script>
 
 <div class="mb-8 flex h-6 gap-1 overflow-hidden">
@@ -13,9 +14,11 @@
 			/>
 		{:else}
 			<div
-				class="flex-1 rounded-xl text-slate-50 {isCorrect
-					? 'bg-green-500'
-					: 'bg-red-400'} transition"
+				class="flex-1 rounded-xl text-slate-50 {hideAnswers
+					? 'bg-contrast'
+					: isCorrect
+						? 'bg-green-500'
+						: 'bg-red-400'} transition"
 			/>
 		{/if}
 	{/each}
