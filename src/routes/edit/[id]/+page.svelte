@@ -16,6 +16,10 @@
 	let isDeleteOpen = false;
 	$: quiz = data.quiz;
 	$: fails = form?.fails;
+	$: if (!formLoading) {
+		saveChangesClicked = false;
+		deleteClicked = false;
+	}
 </script>
 
 <svelte:head>
