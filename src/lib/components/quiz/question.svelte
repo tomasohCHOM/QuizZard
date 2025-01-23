@@ -14,7 +14,7 @@
 
 	function answerClicked(answer: string) {
 		answerSelected = true;
-		if (answerChoices[questionNumber]) return;
+		if (answerChoices[questionNumber] && !hideAnswers) return;
 		correctAnswers[questionNumber] = answer === correct;
 		answerChoices[questionNumber] = answer;
 	}
@@ -40,12 +40,17 @@
 					<button
 						class="theme-opacity h-20 cursor-pointer rounded-xl p-4 font-semibold text-contrast shadow-md transition md:h-24
             {answerChoices[questionNumber]
-							? answer === correct
-								? 'bg-green-500'
-								: 'bg-red-400'
-							: ''} {answerChoices[questionNumber]
+							? hideAnswers
+								? answerChoices[questionNumber] === answer
+									? 'border-2 border-contrast bg-contrast_muted'
+									: 'bg-secondary'
+								: answer === correct
+									? 'bg-green-500'
+									: 'bg-red-400'
+							: 'bg-secondary'}
+            {answerChoices[questionNumber] && !hideAnswers
 							? 'pointer-events-none text-slate-50'
-							: 'bg-secondary'}"
+							: ''}"
 						on:click={() => answerClicked(answer)}
 					>
 						{answer}

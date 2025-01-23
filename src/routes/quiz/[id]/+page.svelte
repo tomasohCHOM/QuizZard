@@ -76,16 +76,18 @@
 			/>
 		</div>
 	{:else}
-		<QuizSet
-			quizName={data.quizName}
-			bind:questionSet
-			bind:correctAnswers
-			bind:answerChoices
-			bind:isFinished
-			bind:totalTime
-			bind:correctAnswerCount
-			bind:quitWindowOpen
-			bind:hideAnswers
-		/>
+		<div in:fly={{ y: 40, duration: 300, delay: 150 }}>
+			<QuizSet
+				quizName={data.quizName}
+				bind:questionSet
+				bind:correctAnswers
+				bind:answerChoices
+				bind:isFinished
+				bind:totalTime
+				bind:correctAnswerCount
+				bind:quitWindowOpen
+				bind:hideAnswers
+			/>
+		</div>
 	{/if}
 </section>
