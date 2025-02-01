@@ -79,12 +79,14 @@
 			</div>
 
 			<div class="flex gap-2">
-				<button
-					class="quiz-btn max-w-min p-0"
-					on:click|preventDefault={() => addIncorrectAnswer(i)}
-				>
-					<Icon icon="mdi:plus" width={40} />
-				</button>
+				{#if question.incorrectAnswers.length < 9}
+					<button
+						class="quiz-btn max-w-min p-0"
+						on:click|preventDefault={() => addIncorrectAnswer(i)}
+					>
+						<Icon icon="mdi:plus" width={40} />
+					</button>
+				{/if}
 
 				{#if question.incorrectAnswers.length > 1}
 					<button

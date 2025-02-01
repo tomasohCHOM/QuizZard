@@ -36,9 +36,9 @@
 			</div>
 
 			<div class="grid grid-cols-1 items-center justify-center gap-2 sm:grid-cols-2">
-				{#each answers as answer}
+				{#each answers as answer, i}
 					<button
-						class="theme-opacity h-20 cursor-pointer rounded-xl p-4 font-semibold text-contrast shadow-md transition md:h-24
+						class="theme-opacity relative h-20 cursor-pointer rounded-xl p-4 font-semibold text-contrast shadow-md transition md:h-24
             {answerChoices[questionNumber]
 							? hideAnswers
 								? answerChoices[questionNumber] === answer
@@ -53,6 +53,11 @@
 							: ''}"
 						on:click={() => answerClicked(answer)}
 					>
+						<span
+							class="absolute -left-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-secondary shadow-md"
+						>
+							{String.fromCharCode("A".charCodeAt(0) + i)}
+						</span>
 						{answer}
 					</button>
 				{/each}

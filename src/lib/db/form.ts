@@ -31,6 +31,11 @@ export function verifyQuizForm(data: FormData): VerifierResponse {
 			const incorrectAnswer = data.get(`incorrect-answer-${i}-${j}`)?.toString()!;
 			if (incorrectAnswer === "") {
 				fails.push("Incorrect answers should not be empty.");
+				break;
+			}
+			if (incorrectAnswers.length == 9) {
+				fails.push("Number of incorrect answers exceeds limit of 9.");
+				break;
 			}
 			incorrectAnswers.push(data.get(`incorrect-answer-${i}-${j}`)?.toString()!);
 		}
